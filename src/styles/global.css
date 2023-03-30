@@ -37,3 +37,19 @@ body {
    color: var(--c1);
    background-color: var(--c2);
 }
+
+.vContainer{
+   display: flex;
+   flex-direction: column;
+}
+
+.hContainer{
+   display: flex;
+   flex-direction: row;
+}
+
+.centerContent{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}

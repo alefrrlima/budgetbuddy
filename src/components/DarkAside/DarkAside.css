@@ -1,0 +1,6 @@
+div {
+   display: flex;
+   flex-direction: column;
+   background-color: var(--c10);
+   padding: 25px;
+}
