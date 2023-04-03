@@ -1,10 +1,25 @@
 .button{
-   color: var(--c12);
-   background-color: var(--c10);
    border-radius: 5px;
    padding: 8px;
    width: fit-content;
    font-family: 'Inter', sans-serif;
    font-size: 15px;
    font-weight: 700;
+   cursor: pointer;
 }
+
+.blueButton{
+   color: var(--c12);
+   background-color: var(--c10);
+}
+
+.redButton{
+   color: var(--c4);
+   background-color: var(--c3);
+}
+
+.greenButton{
+   color: var(--c6);
+   background-color: var(--c5);
+}
+

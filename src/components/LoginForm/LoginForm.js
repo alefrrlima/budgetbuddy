@@ -1,5 +1,7 @@
 import "./LoginForm.css"
 
+import "../../styles/global.css"
+
 import BBVerticalLogo from "../BBVerticalLogo/BBVerticalLogo.js"
 import InputBox from "../InputBox/InputBox.js"
 import Button from "../Button/Button.js"
@@ -15,14 +17,15 @@ export default function LoginForm(){
             inputType="email"
             inputPlaceholder="Email."
             />
-
+            
             <InputBox
             inputType="password"
             inputPlaceholder="Senha."
             />
 
             <Button 
-            text="LOGIN"
+               text="LOGIN" 
+               className="blueButton"
             />
          </form>
 

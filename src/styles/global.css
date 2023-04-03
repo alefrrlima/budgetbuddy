@@ -2,17 +2,17 @@
 
 :root {
    --c1: #000000;
-   --c2: #FFFFFF;
-   --c3: #FA0000;
-   --c4: #FF8787;
-   --c5: #00AE00;
-   --c6: #56FF56;
+   --c2: #ffffff;
+   --c3: #e20101;
+   --c4: #ffa4a4;
+   --c5: #00ae00;
+   --c6: #56ff56;
    --c7: #494949;
    --c8: #959595;
-   --c9: #EAEAEA;
+   --c9: #eaeaea;
    --c10: #263238;
    --c11: #597684;
-   --c12: #8CBAD0;
+   --c12: #8cbad0;
 }
 
 * {
@@ -42,6 +42,7 @@ form {
    display: flex;
    flex-direction: column;
    margin-bottom: 15px;
+   align-items: center;
 }
 
 h1 {
@@ -49,12 +50,14 @@ h1 {
    font-weight: 200;
    color: var(--c12);
    margin-bottom: 30px;
+   line-height: 100%;
 }
 
 h2 {
    font-size: 2.4rem;
    font-weight: 700;
    color: var(--c10);
+   line-height: 100%;
 }
 
 p {
@@ -62,20 +65,26 @@ p {
    font-weight: 500;
    color: var(--c2);
    margin-bottom: 15px;
+   line-height: 125%;
 }
 
-.vContainer{
+.vContainer {
    display: flex;
    flex-direction: column;
 }
 
-.hContainer{
+.hContainer {
    display: flex;
    flex-direction: row;
 }
 
-.centerContent{
+.centerContent {
    display: flex;
    align-items: center;
    justify-content: center;
+}
+
+.blueButton {
+   color: var(--c12);
+   background-color: var(--c10);
 }
