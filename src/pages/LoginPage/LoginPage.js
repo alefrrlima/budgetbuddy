@@ -5,7 +5,9 @@ import DarkAside from '../../components/DarkAside/DarkAside.js';
 export default function LoginPage() {
    return (
       <div className="hContainer">
-         <main className="centerContent"></main>
+         <main className="centerContent">
+            
+         </main>
 
          <DarkAside
             mainTitle="Sobre"
