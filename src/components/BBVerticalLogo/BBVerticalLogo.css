@@ -2,6 +2,10 @@
    margin-bottom: 30px;
 }
 
+.bbVerticalLogo img {
+   margin-bottom: 5px;
+}
+
 .bbVerticalLogo div {
    display: flex;
    flex-direction: column;

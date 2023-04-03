@@ -2,6 +2,7 @@ import "./LoginForm.css"
 
 import BBVerticalLogo from "../BBVerticalLogo/BBVerticalLogo.js"
 import InputBox from "../InputBox/InputBox.js"
+import Button from "../Button/Button.js"
 
 export default function LoginForm(){
    return(
@@ -14,12 +15,15 @@ export default function LoginForm(){
             inputType="email"
             inputPlaceholder="Email."
             />
+
             <InputBox
             inputType="password"
             inputPlaceholder="Senha."
             />
 
-            <button></button>
+            <Button 
+            text="LOGIN"
+            />
          </form>
 
          <span></span>
