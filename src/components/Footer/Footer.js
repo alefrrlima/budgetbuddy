@@ -7,8 +7,8 @@ export default function Footer(){
       <div className="footer">
          <div>
             <span>Alexandre Lima</span>
-            <a>LinkedIn</a>
-            <a>GitHub</a>
+            <a target="_blank" href="https://www.linkedin.com/in/alefrrlima/">LinkedIn</a>
+            <a target="_blank" href="https://github.com/alefrrlima">GitHub</a>
          </div>
          <img src={aleLogo}/>
       </div>
