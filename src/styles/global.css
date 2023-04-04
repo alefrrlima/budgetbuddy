@@ -45,6 +45,12 @@ form {
    align-items: center;
 }
 
+span {
+   font-weight: 300;
+   font-size: 1.5rem;
+   color: var(--c7);
+}
+
 h1 {
    font-size: 6rem;
    font-weight: 200;

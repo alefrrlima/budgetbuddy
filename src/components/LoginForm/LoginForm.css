@@ -1,0 +1,10 @@
+.link {
+   font-weight: 700;
+   color: var(--c12);
+}
+
+.loginForm {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
