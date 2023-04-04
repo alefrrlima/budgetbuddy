@@ -3,3 +3,14 @@
    background-color: var(--c10);
    margin: 0 -30px;
 }
+
+.budgetSelector img {
+   border-radius: 5px;
+}
+
+.budgetSelector button {
+   max-width: 104px;
+   max-height: 104px;
+   border-radius: 5px;
+   cursor: pointer;
+}
