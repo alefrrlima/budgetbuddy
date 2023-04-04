@@ -66,6 +66,13 @@ h2 {
    line-height: 100%;
 }
 
+h3 {
+   font-size: 20px;
+   font-weight: 700;
+   color: var(--c10);
+   line-height: 100%;
+}
+
 p {
    font-size: 1.8rem;
    font-weight: 500;

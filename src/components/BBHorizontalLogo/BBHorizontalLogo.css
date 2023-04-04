@@ -1,0 +1,9 @@
+.bbHorizontalLogo{
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+}
+
+.bbHorizontalLogo h2 {
+   margin-left: 5px;
+}

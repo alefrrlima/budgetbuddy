@@ -1,0 +1,14 @@
+.logout{
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   height: 35px;
+}
+
+.logout h3 {
+   margin-right: 5px;
+}
+
+.logout a {
+   height: 35px;
+}
