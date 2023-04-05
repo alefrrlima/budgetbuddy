@@ -7,7 +7,11 @@ export default function BudgetSelector() {
    return (
       <div className="budgetSelector">
          <NewBudgetButton/>
-         <Budget/>
+         <Budget
+            title="Orçamento Orçamento"
+            value="R$ 30.000,00"
+            id="#001"
+         />
       </div>
    );
 }

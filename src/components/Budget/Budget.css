@@ -4,4 +4,15 @@
    background-color: var(--c2);
    height: 104px;
    width: 226px;
+   display: flex;
+   flex-direction: column;
+}
+
+.budget span {
+   font-size: 1.6rem;
+   font-weight: 300;
+}
+
+.budget button {
+   background-color: var(--c2);
 }

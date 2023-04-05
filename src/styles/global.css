@@ -49,6 +49,10 @@ form {
    align-items: center;
 }
 
+button {
+   font-family: 'Inter', sans-serif;
+}
+
 span {
    font-weight: 300;
    font-size: 1.5rem;
