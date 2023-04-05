@@ -37,6 +37,7 @@ body {
    color: var(--c1);
    background-color: var(--c2);
    position: absolute;
+   width: 100vw;
 }
 
 form {
