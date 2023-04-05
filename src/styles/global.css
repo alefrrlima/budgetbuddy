@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
+
 :root {
    --c1: #000000;
    --c2: #ffffff;
@@ -69,8 +71,15 @@ h2 {
 }
 
 h3 {
-   font-size: 20px;
+   font-size: 2rem;
    font-weight: 700;
+   color: var(--c10);
+   line-height: 100%;
+}
+
+h4 {
+   font-size: 1.8rem;
+   font-weight: 500;
    color: var(--c10);
    line-height: 100%;
 }
@@ -102,4 +111,35 @@ p {
 .blueButton {
    color: var(--c12);
    background-color: var(--c10);
+   transition: 0.2s;
+}
+
+.blueButton:hover,
+.blueButton:focus {
+   color: var(--c10);
+   background-color: var(--c12);
+}
+
+.greenButton {
+   color: var(--c6);
+   background-color: var(--c5);
+   transition: 0.2s;
+}
+
+.greenButton:hover,
+.greenButton:focus {
+   color: var(--c5);
+   background-color: var(--c6);
+}
+
+.redButton {
+   color: var(--c4);
+   background-color: var(--c3);
+   transition: 0.2s;
+}
+
+.redButton:hover,
+.redButton:focus {
+   color: var(--c3);
+   background-color: var(--c4);
 }
