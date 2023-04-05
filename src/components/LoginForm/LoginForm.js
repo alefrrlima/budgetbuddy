@@ -25,10 +25,13 @@ export default function LoginForm(){
             inputPlaceholder="Senha."
             />
 
-            <Button 
-               text="LOGIN" 
-               className="blueButton"
-            />
+            <Link to="/home">
+               <Button 
+                  text="LOGIN" 
+                  className="blueButton"
+               />
+            </Link>
+            
          </form>
          
          <span>Não tem cadastro? <Link className="link" to="/signin">Registrar-se</Link></span>

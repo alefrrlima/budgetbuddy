@@ -6,6 +6,8 @@
    width: 226px;
    display: flex;
    flex-direction: column;
+   justify-content: space-between;
+   margin: 0 15px;
 }
 
 .budget span {
@@ -15,4 +17,22 @@
 
 .budget button {
    background-color: var(--c2);
+   width: fit-content;
+   cursor: pointer;
+   font-weight: 500;
+   font-size: 1.2rem;
+   color: var(--c12);
+   transition: 0.2s;
+}
+
+.budget button:hover,.budget button:focus{
+   color: var(--c10);
+}
+
+.budget div {
+   display: flex;
+   flex-direction: row;
+   width: 100%;
+   justify-content: space-between;
+   align-items: end;
 }
