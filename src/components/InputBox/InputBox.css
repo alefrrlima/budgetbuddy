@@ -8,6 +8,7 @@
    font-family: 'Inter', sans-serif;
    border-radius: 5px;
    margin-bottom: 15px;
+   outline: none;
 }
 
 input::placeholder{

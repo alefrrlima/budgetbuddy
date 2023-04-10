@@ -1,0 +1,25 @@
+.inputCheckBox {
+   display: flex;
+   flex-direction: row;
+   margin: 0 15px 15px 15px;
+   align-items: center;
+   justify-content: center;
+}
+
+.inputCheckBox label{
+   margin-left: 10px;
+   font-weight: 400;
+   font-size: 1.8rem;
+   color: var(--c2);
+}
+
+input[type="checkbox"]{
+   width: 15px;
+   height: 15px;
+   border-radius: 5px;
+}
+
+.checkboxContainer{
+   display: flex;
+   flex-direction: row;
+}
