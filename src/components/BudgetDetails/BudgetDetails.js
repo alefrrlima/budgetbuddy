@@ -1,15 +1,15 @@
-import "./BudgetDetails.css"
+import './BudgetDetails.css';
 
-export default function BudgetDetails(props){
-   return(
+export default function BudgetDetails(props) {
+   return (
       <div className="budgetDetails">
          <div>
-            <span className="budgetTitle">{props.budgetTitle}</span>
-            <span className="budgetDetails">{props.budgetAddressee}</span>
-            <span className="budgetDetails">{props.budgetCategory}</span>
-            <span className="budgetDetails">{props.budgetValue}</span>
+            <span className='budgetTitle'>Orçamento Orçamento</span>
+            <span className=''>Alexandre Ferreira Lima</span>
+            <span className=''>Serviço</span>
+            <span className=''>R$ 30.000,00</span>
          </div>
-         <span className="budgetNote">{props.budgetNote}</span>
+         <span className="budgetNote">Detalhes</span>
       </div>
-   )
+   );
 }
