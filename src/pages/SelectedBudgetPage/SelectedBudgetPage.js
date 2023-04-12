@@ -1,7 +1,7 @@
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import LightAside from '../../components/LightAside/LightAside.js';
-import BudgetDetails from "../../components/BudgetDetails/BudgetDetails.js"
+import BudgetDetails from '../../components/BudgetDetails/BudgetDetails.js';
 
 export default function SelectedBudgetPage() {
    return (
@@ -12,11 +12,11 @@ export default function SelectedBudgetPage() {
             firstParagraph="Confira em detalhes, edite se desejar."
          />
          <BudgetDetails
-         budgetTitle="Orçamento"
-         budgetAddressee="Alexandre Ferreira Lima"
-         budgetCategory="Serviço"
-         budgetValue="R$ 30.000,00"
-         budgetNote="Oi"
+            budgetTitle="Orçamento"
+            budgetAddressee="Alexandre Ferreira Lima"
+            budgetCategory="Serviço"
+            budgetValue="R$ 30.000,00"
+            budgetNote="Oi"
          />
          <Footer />
       </div>

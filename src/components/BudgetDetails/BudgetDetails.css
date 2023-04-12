@@ -1,12 +1,54 @@
-.budgetDetails{
-   background-color: var(--c12);
+.budgetDetails {
+   background-color: var(--c10);
    margin: 0 -30px;
    padding: 30px;
    display: flex;
    flex-direction: row;
+   justify-content: center;
 }
 
 .budgetDetails div {
    display: flex;
    flex-direction: column;
+   max-width: 300px;
+}
+
+.budgetTitle {
+   font-size: 2.6rem;
+   font-weight: 200;
+   color: var(--c12);
+   margin-bottom: 15px;
+}
+
+.budgetInfo {
+   font-size: 1.8rem;
+   font-weight: 300;
+   color: var(--c2);
+   margin-bottom: 7.5px;
+}
+
+.budgetInfo:last-child {
+   margin-bottom: 0;
+}
+
+.budgetNote{
+   color: var(--c10);
+   padding: 7.5px;
+   border-radius: 5px;
+   margin-left: 30px;
+   min-width: 300px;
+   max-width: 300px;
+   height: fit-content;
+   max-height: 169px;
+   font-size: 1.8rem;
+   font-weight: 300;
+}
+
+.buttonsSection {
+   margin-top: 15px;
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
 }

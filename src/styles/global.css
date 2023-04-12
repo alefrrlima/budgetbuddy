@@ -35,10 +35,14 @@ html {
 body {
    font-family: 'Inter', sans-serif;
    font-size: 1.6rem;
-   color: var(--c1);
+   color: var(--c10);
    background-color: var(--c2);
    position: absolute;
    width: 100vw;
+}
+
+body, button, textarea {
+   font-family: 'Inter', sans-serif;
 }
 
 form {
@@ -46,10 +50,6 @@ form {
    flex-direction: column;
    margin-bottom: 15px;
    align-items: center;
-}
-
-button {
-   font-family: 'Inter', sans-serif;
 }
 
 span {
