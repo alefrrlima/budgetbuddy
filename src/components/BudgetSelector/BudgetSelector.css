@@ -7,7 +7,7 @@
 .displayBudgets {
    padding: 15px;
    background-color: var(--c10);
-   margin: 0 -30px;
+   margin: 0 -30px 15px -30px;
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
