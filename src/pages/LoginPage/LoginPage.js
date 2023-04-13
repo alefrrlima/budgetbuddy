@@ -6,7 +6,7 @@ import LoginForm from "../../components/LoginForm/LoginForm.js"
 
 export default function LoginPage() {
    return (
-      <div className="hContainer">
+      <div className="loginPage">
 
          <div className="whiteContainer centerContent">
             <LoginForm />

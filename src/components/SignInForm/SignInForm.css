@@ -1,0 +1,9 @@
+.signInForm {
+   margin: 30px;
+}
+
+@media (max-width: 499px){
+   .signInForm{
+      margin: 15px;
+   }
+}

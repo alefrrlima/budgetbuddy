@@ -1,7 +1,16 @@
 .budgetSelector{
-   padding: 30px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.displayBudgets {
+   padding: 15px;
    background-color: var(--c10);
    margin: 0 -30px;
    display: flex;
    flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: center;
+   width: 100vw;
 }

@@ -6,21 +6,41 @@
    font-size: 15px;
    font-weight: 700;
    cursor: pointer;
-   margin: 15px 15px 0 15px;
+   margin: 15px;
 }
 
-.blueButton{
+.blueButton {
    color: var(--c12);
    background-color: var(--c10);
+   transition: 0.2s;
 }
 
-.redButton{
-   color: var(--c4);
-   background-color: var(--c3);
+.blueButton:hover,
+.blueButton:focus {
+   color: var(--c10);
+   background-color: var(--c12);
 }
 
-.greenButton{
+.greenButton {
    color: var(--c6);
    background-color: var(--c5);
+   transition: 0.2s;
 }
 
+.greenButton:hover,
+.greenButton:focus {
+   color: var(--c5);
+   background-color: var(--c6);
+}
+
+.redButton {
+   color: var(--c4);
+   background-color: var(--c3);
+   transition: 0.2s;
+}
+
+.redButton:hover,
+.redButton:focus {
+   color: var(--c3);
+   background-color: var(--c4);
+}

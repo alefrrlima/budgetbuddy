@@ -7,4 +7,11 @@
    display: flex;
    flex-direction: column;
    align-items: center;
+   margin: 30px;
+}
+
+@media (max-width: 499px) {
+   .loginForm{
+      margin: 15px;
+   }
 }

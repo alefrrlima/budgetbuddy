@@ -1,9 +1,11 @@
 import DarkAside from "../../components/DarkAside/DarkAside.js"
 import SignInForm from "../../components/SignInForm/SignInForm.js"
 
+import "./SignInPage.css"
+
 export default function SignInPage(){
    return(
-      <div className="hContainer">
+      <div className="signInPage">
          <div className="whiteContainer centerContent">
             <SignInForm/>
          </div>

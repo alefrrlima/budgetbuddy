@@ -39,9 +39,12 @@ body {
    background-color: var(--c2);
    position: absolute;
    width: 100vw;
+   min-width: 330px;
 }
 
-body, button, textarea {
+body,
+button,
+textarea {
    font-family: 'Inter', sans-serif;
 }
 
@@ -111,38 +114,13 @@ p {
    justify-content: center;
 }
 
-.blueButton {
-   color: var(--c12);
-   background-color: var(--c10);
-   transition: 0.2s;
-}
+@media (max-width: 499px) {
+   h1 {
+      font-size: 4.5rem;
+      margin-bottom: 15px;
+   }
 
-.blueButton:hover,
-.blueButton:focus {
-   color: var(--c10);
-   background-color: var(--c12);
-}
-
-.greenButton {
-   color: var(--c6);
-   background-color: var(--c5);
-   transition: 0.2s;
-}
-
-.greenButton:hover,
-.greenButton:focus {
-   color: var(--c5);
-   background-color: var(--c6);
-}
-
-.redButton {
-   color: var(--c4);
-   background-color: var(--c3);
-   transition: 0.2s;
-}
-
-.redButton:hover,
-.redButton:focus {
-   color: var(--c3);
-   background-color: var(--c4);
+   p{
+      font-size: 1.6rem;
+   }
 }

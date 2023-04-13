@@ -3,6 +3,8 @@ import InputBox from "../InputBox/InputBox";
 import Button from "../Button/Button";
 import AlertMessage from "../AlertMessage/AlertMessage";
 
+import "./SignInForm.css"
+
 export default function SignInForm(){
    return(
       <div className="signInForm">

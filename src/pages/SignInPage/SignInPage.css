@@ -1,14 +1,10 @@
-.loginPage{
+.signInPage{
    display: flex;
    flex-direction: row;
 }
 
-.whiteContainer{
-   width: 100%;
-}
-
 @media (max-width: 799px){
-   .loginPage{
+   .signInPage{
       flex-direction: column;
    }
 }

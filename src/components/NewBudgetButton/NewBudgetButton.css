@@ -1,6 +1,8 @@
 .newBudgetButton {
-   width: 104px;
-   height: 104px;
+   min-width: 104px;
+   min-height: 104px;
+   max-width: 104px;
+   max-height: 104px;
    border-radius: 5px;
    stroke: var(--c12);
    background-color: var(--c2);
@@ -9,10 +11,11 @@
    align-items: center;
    justify-content: center;
    cursor: pointer;
-   margin-right: 15px;
+   margin: 15px;
 }
 
-.newBudgetButton:hover, .newBudgetButton:focus{
+.newBudgetButton:hover,
+.newBudgetButton:focus {
    stroke: var(--c2);
    background-color: var(--c12);
 }

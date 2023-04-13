@@ -2,8 +2,7 @@ import './DarkAside.css';
 
 export default function DarkAside(props) {
    return (
-      <div className='darkAside'>
-
+      <div className="darkAside">
          <div>
             <h1>{props.mainTitle}</h1>
             <article>
@@ -11,7 +10,6 @@ export default function DarkAside(props) {
                <p>{props.secondParagraph}</p>
             </article>
          </div>
-
       </div>
    );
 }
