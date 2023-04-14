@@ -1,7 +1,7 @@
 .budgetDetails {
    background-color: var(--c10);
    margin: 0 -30px;
-   padding: 30px;
+   padding: 15px;
    display: flex;
    flex-direction: row;
    justify-content: center;
@@ -10,7 +10,8 @@
 .budgetDetails div {
    display: flex;
    flex-direction: column;
-   max-width: 300px;
+   width: 300px;
+   margin: 15px
 }
 
 .budgetTitle {
@@ -42,6 +43,7 @@
    max-height: 169px;
    font-size: 1.8rem;
    font-weight: 300;
+   margin: 15px;
 }
 
 .buttonsSection {
