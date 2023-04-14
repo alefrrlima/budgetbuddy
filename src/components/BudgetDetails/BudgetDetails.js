@@ -5,8 +5,6 @@ import AlertMessage from '../../components/AlertMessage/AlertMessage.js';
 export default function BudgetDetails(props) {
    return (
       <>
-
-      
          <div className="budgetDetails">
             <div>
                <span className="budgetTitle">Orçamento Orçamento</span>
@@ -16,7 +14,6 @@ export default function BudgetDetails(props) {
             </div>
             <textarea className="budgetNote">Detalhes</textarea>
          </div>
-
 
          <div className="buttonsSection">
             <div>

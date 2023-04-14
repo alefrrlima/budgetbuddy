@@ -1,17 +1,19 @@
 .budgetDetails {
    background-color: var(--c10);
-   margin: 0 -30px;
    padding: 15px;
    display: flex;
    flex-direction: row;
    justify-content: center;
+   margin: 0 -30px;
+   width: 100vw;
+   flex-wrap: wrap;
 }
 
 .budgetDetails div {
    display: flex;
    flex-direction: column;
-   width: 300px;
-   margin: 15px
+   min-width: 300px;
+   margin: 15px;
 }
 
 .budgetTitle {
@@ -32,7 +34,7 @@
    margin-bottom: 0;
 }
 
-.budgetNote{
+.budgetNote {
    color: var(--c10);
    padding: 7.5px;
    border-radius: 5px;
@@ -53,4 +55,31 @@
    flex-direction: column;
    align-items: center;
    justify-content: center;
+}
+
+.buttonsSection div {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+}
+
+@media (max-width: 799px) {
+   .budgetDetails {
+      margin: 0 -15px 7.5px -15px;
+      padding: 7.5px;
+   }
+
+   .budgetDetails div, .budgetNote {
+      margin: 7.5px;
+   }
+
+   .buttonsSection{
+      margin-top: 0;
+   }
+
+   .buttonsSection button{
+      margin: 7.5px;
+   }
 }
