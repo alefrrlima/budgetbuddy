@@ -14,3 +14,10 @@
    justify-content: center;
    width: 100vw;
 }
+
+@media (max-width: 799px) {
+   .displayBudgets{
+      padding: 7.5px;
+      margin: 0 -15px;
+   }
+}

@@ -13,3 +13,9 @@
    color: var(--c10);
    margin-bottom: 0;
 }
+
+@media (max-width: 799px) {
+   .lightAside h1 {
+      margin-bottom: 5px;
+   }
+}

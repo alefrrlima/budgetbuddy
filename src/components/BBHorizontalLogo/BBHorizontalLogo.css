@@ -7,3 +7,9 @@
 .bbHorizontalLogo h2 {
    margin-left: 5px;
 }
+
+@media (max-width: 799px){
+   .bbHorizontalLogo img {
+      height: 33.75px;
+   }
+}

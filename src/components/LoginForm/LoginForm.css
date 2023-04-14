@@ -10,7 +10,11 @@
    margin: 30px;
 }
 
-@media (max-width: 499px) {
+.loginForm span {
+   margin-bottom: 15px;
+}
+
+@media (max-width: 799px) {
    .loginForm{
       margin: 15px;
    }
