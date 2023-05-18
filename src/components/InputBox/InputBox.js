@@ -1,11 +1,15 @@
-import "./InputBox.css"
+import React from 'react';
+import './InputBox.css';
 
-export default function InputBox(props){
-   return(
-      <input 
+const InputBox = React.forwardRef((props, ref) => {
+   return (
+      <input
          className={`inputBox ${props.className}`}
          type={props.inputType}
          placeholder={props.inputPlaceholder}
+         ref={ref}
       />
-   )
-}
+   );
+});
+
+export default InputBox;
