@@ -5,8 +5,10 @@ const InputBox = React.forwardRef((props, ref) => {
    return (
       <input
          className={`inputBox ${props.className}`}
-         type={props.inputType}
-         placeholder={props.inputPlaceholder}
+         type={props.type}
+         placeholder={props.placeholder}
+         onChange={props.onChange}
+         value={props.valeu}
          ref={ref}
       />
    );

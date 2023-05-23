@@ -1,4 +1,6 @@
 .alertMessage {
    color: var(--c3);
    margin: 0 15px;
+   max-width: 300px;
+   text-align: center;
 }

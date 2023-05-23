@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useState } from 'react';
 
 import BBVerticalLogo from '../BBVerticalLogo/BBVerticalLogo';
 import InputBox from '../InputBox/InputBox';
@@ -8,15 +8,49 @@ import AlertMessage from '../AlertMessage/AlertMessage';
 import './SignInForm.css';
 
 export default function SignInForm() {
-   const name = useRef();
-   const email = useRef();
-   const email2 = useRef();
-   const password = useRef();
-   const password2 = useRef();
+   const [name, setName] = useState();
+   const [email, setEmail] = useState();
+   const [emailCheck, setEmailCheck] = useState();
+   const [password, setPassword] = useState();
+   const [passwordCheck, setPasswordCheck] = useState();
+   const [errorMessage, setErrorMessage] = useState();
+
+   function formValidation(e) {
+      e.preventDefault();
+      setErrorMessage('');
+      if (!name) {
+         setErrorMessage('Por favor, preencha todos os campos');
+      } else if (name.length > 10) {
+         setErrorMessage('Insira somente seu primeiro nome. Deve ter entre 2 e 10 caracteres, abrevie se precisar.');
+      }
+      if (!email) {
+         setErrorMessage('Por favor, preencha todos os campos');
+      } else if (!/\S+@\S+\.\S+/.test(email)) {
+         setErrorMessage('Por favor, insira um email válido.');
+      }
+
+      if (!emailCheck) {
+         setErrorMessage('Por favor, preencha todos os campos');
+      } else if (email != emailCheck) {
+         setErrorMessage('Os emails escritos não conferem, corrija antes de prosseguir');
+      }
+
+      if (!password) {
+         setErrorMessage('Por favor, preencha todos os campos');
+      } else if (password.length < 5 || password.length > 10) {
+         setErrorMessage('Por favor, insira uma senha que tenha de 5 a 10 caracteres.');
+      }
+
+      if (!passwordCheck) {
+         setErrorMessage('Por favor, preencha todos os campos');
+      } else if (password != passwordCheck) {
+         setErrorMessage('Os senhas escritas não conferem, corrija antes de prosseguir');
+      }
+   }
 
    function handleSubmit(e) {
       e.preventDefault();
-      console.log(name.current.value, email.current.value, password.current.value);
+      console.log(name, email, emailCheck, password, passwordCheck);
    }
 
    return (
@@ -24,37 +58,42 @@ export default function SignInForm() {
          <BBVerticalLogo />
          <form>
             <InputBox
-               ref={name}
-               inputType="text"
-               inputPlaceholder="Seu primeiro nome."
+               value={name}
+               onChange={(e) => setName(e.target.value)}
+               type="text"
+               placeholder="Seu primeiro nome."
             />
             <InputBox
-               ref={email}
-               inputType="email"
-               inputPlaceholder="Seu email."
+               value={email}
+               onChange={(e) => setEmail(e.target.value)}
+               type="email"
+               placeholder="Seu email."
             />
             <InputBox
-               ref={email2}
-               inputType="email"
-               inputPlaceholder="Repita seu email."
+               value={emailCheck}
+               onChange={(e) => setEmailCheck(e.target.value)}
+               type="email"
+               placeholder="Repita seu email."
             />
             <InputBox
-               ref={password}
-               inputType="password"
-               inputPlaceholder="Sua senha."
+               value={password}
+               onChange={(e) => setPassword(e.target.value)}
+               type="password"
+               placeholder="Sua senha."
             />
             <InputBox
-               forwardedRef={password2}
-               inputType="password"
-               inputPlaceholder="Repita sua senha."
+               value={passwordCheck}
+               onChange={(e) => setPasswordCheck(e.target.value)}
+               type="password"
+               placeholder="Repita sua senha."
             />
             <Button
-               onClick={handleSubmit}
+               onClick={formValidation}
                type="submit"
                text="CADASTRAR"
                className="blueButton"
             />
-            <AlertMessage content="oi" />
+            <AlertMessage content={errorMessage} />
          </form>
       </div>
    );

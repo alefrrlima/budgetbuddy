@@ -5,7 +5,7 @@ import './Logout.css';
 export default function Logout() {
    return (
       <div className="logout">
-         <h3>Username</h3>
+         <h3>Wingslomps</h3>
          <Link className="logoutButton" to="/">
             <svg
                width="22"
