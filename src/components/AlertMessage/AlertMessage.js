@@ -1,7 +1,7 @@
-import "./AlertMessage.css"
+import './AlertMessage.css';
 
-export default function AlertMessage(props){
-   return(
-      <span className="alertMessage">{props.content}</span>
-   )
+export default function AlertMessage(props) {
+   return (
+      <span className={`alertMessage ${props.color}`}>{props.content}</span>
+   );
 }

@@ -14,9 +14,9 @@ export default function LoginForm() {
          <BBVerticalLogo />
 
          <form>
-            <InputBox inputType="email" inputPlaceholder="Email." />
+            <InputBox type="email" placeholder="Email." />
 
-            <InputBox inputType="password" inputPlaceholder="Senha." />
+            <InputBox type="password" placeholder="Senha." />
 
             <Link to="/home">
                <Button text="LOGIN" className="blueButton" type="submit" />

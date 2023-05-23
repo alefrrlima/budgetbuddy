@@ -10,6 +10,7 @@ const InputBox = React.forwardRef((props, ref) => {
          onChange={props.onChange}
          value={props.valeu}
          ref={ref}
+         id={props.id}
       />
    );
 });

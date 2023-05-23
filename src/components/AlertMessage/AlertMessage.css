@@ -4,3 +4,7 @@
    max-width: 300px;
    text-align: center;
 }
+
+.green{
+   color: var(--c5);
+}
