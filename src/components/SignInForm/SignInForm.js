@@ -16,7 +16,7 @@ export default function SignInForm() {
 
    function handleSubmit(e) {
       e.preventDefault();
-      console.log(name, email, password);
+      console.log(name.current.value, email.current.value, password.current.value);
    }
 
    return (
@@ -24,22 +24,22 @@ export default function SignInForm() {
          <BBVerticalLogo />
          <form>
             <InputBox
-               forwardedRef={name}
+               ref={name}
                inputType="text"
                inputPlaceholder="Seu primeiro nome."
             />
             <InputBox
-               forwardedRef={email}
+               ref={email}
                inputType="email"
                inputPlaceholder="Seu email."
             />
             <InputBox
-               forwardedRef={email2}
+               ref={email2}
                inputType="email"
                inputPlaceholder="Repita seu email."
             />
             <InputBox
-               forwardedRef={password}
+               ref={password}
                inputType="password"
                inputPlaceholder="Sua senha."
             />
@@ -50,10 +50,11 @@ export default function SignInForm() {
             />
             <Button
                onClick={handleSubmit}
+               type="submit"
                text="CADASTRAR"
                className="blueButton"
             />
-            <AlertMessage />
+            <AlertMessage content="oi" />
          </form>
       </div>
    );

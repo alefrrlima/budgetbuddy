@@ -1,7 +1,7 @@
 import "./AlertMessage.css"
 
-export default function AlertMessage(){
+export default function AlertMessage(props){
    return(
-      <span className="alertMessage">message message message</span>
+      <span className="alertMessage">{props.content}</span>
    )
 }

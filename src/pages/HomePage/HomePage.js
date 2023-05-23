@@ -7,6 +7,11 @@ import BudgetSelector from "../../components/BudgetSelector/BudgetSelector.js"
 import Footer from "../../components/Footer/Footer.js"
 
 export default function HomePage(){
+
+
+
+
+
    return(
       <div className="homePage pageContainer">
          <Header/>
