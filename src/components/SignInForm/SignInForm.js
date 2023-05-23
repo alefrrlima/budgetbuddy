@@ -63,11 +63,11 @@ export default function SignInForm() {
          setErrorMessage('Cadastro realizado com sucesso!');
          setErrorColor('green');
          setTimeout(() => {
-            const newUser = [name, email, password]
-            const newUserString = JSON.stringify(newUser)
-            const randomNunber = 
-            localStorage.setItem(name, newUserString)
-
+            // alternativa: email como key?
+            const newUser = [name, email, password];
+            const newUserString = JSON.stringify(newUser);
+            const randomNumber = Math.floor(Math.random() * 900) + 100;
+            localStorage.setItem(`${name}${randomNumber}`, newUserString);
             setTimeout(() => {
                navigate('/');
             }, 500);
