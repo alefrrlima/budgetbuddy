@@ -16,7 +16,7 @@ export default function SignInForm() {
    const [passwordCheck, setPasswordCheck] = useState();
    const [errorMessage, setErrorMessage] = useState();
    const [errorColor, setErrorColor] = useState();
-   const navigate = useNavigate()
+   const navigate = useNavigate();
 
    function formValidation() {
       const regEx = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g;
@@ -63,15 +63,21 @@ export default function SignInForm() {
          setErrorMessage('Cadastro realizado com sucesso!');
          setErrorColor('green');
          setTimeout(() => {
-            navigate("/")
-         }, 1500);
+            const newUser = [name, email, password]
+            const newUserString = JSON.stringify(newUser)
+            const randomNunber = 
+            localStorage.setItem(name, newUserString)
+
+            setTimeout(() => {
+               navigate('/');
+            }, 500);
+         }, 500);
       }
    }
 
    function handleSubmit(e) {
       e.preventDefault();
       formValidation();
-      console.log(name, email, emailCheck, password, passwordCheck);
    }
 
    return (
