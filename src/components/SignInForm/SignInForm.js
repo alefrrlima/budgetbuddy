@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { json, useNavigate } from 'react-router-dom';
 
 import BBVerticalLogo from '../BBVerticalLogo/BBVerticalLogo';
 import InputBox from '../InputBox/InputBox';
@@ -9,75 +9,80 @@ import AlertMessage from '../AlertMessage/AlertMessage';
 import './SignInForm.css';
 
 export default function SignInForm() {
-   const [name, setName] = useState();
-   const [email, setEmail] = useState();
-   const [emailCheck, setEmailCheck] = useState();
-   const [password, setPassword] = useState();
-   const [passwordCheck, setPasswordCheck] = useState();
-   const [errorMessage, setErrorMessage] = useState();
-   const [errorColor, setErrorColor] = useState();
+   const [name, setName] = useState('');
+   const [email, setEmail] = useState('');
+   const [emailCheck, setEmailCheck] = useState('');
+   const [password, setPassword] = useState('');
+   const [passwordCheck, setPasswordCheck] = useState('');
+   const [errorMessage, setErrorMessage] = useState('');
+   const [errorColor, setErrorColor] = useState('');
    const navigate = useNavigate();
 
-   function formValidation() {
-      const regEx = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g;
-
-      setErrorMessage('');
-      setErrorColor('');
-
-      if (!name) {
-         setErrorMessage('Por favor, preencha todos os campos');
-      } else if (name.length > 10) {
-         setErrorMessage(
-            'Insira somente seu primeiro nome. Deve ter entre 2 e 10 caracteres, abrevie se precisar.'
-         );
-      }
-      if (!email) {
-         setErrorMessage('Por favor, preencha todos os campos');
-      } else if (!regEx.test(email)) {
-         setErrorMessage('Por favor, insira um email válido.');
-      }
-
-      if (!emailCheck) {
-         setErrorMessage('Por favor, preencha todos os campos');
-      } else if (email != emailCheck) {
-         setErrorMessage(
-            'Os emails escritos não conferem, corrija antes de prosseguir'
-         );
-      }
-
-      if (!password) {
-         setErrorMessage('Por favor, preencha todos os campos');
-      } else if (password.length < 5 || password.length > 10) {
-         setErrorMessage(
-            'Por favor, insira uma senha que tenha de 5 a 10 caracteres.'
-         );
-      }
-
-      if (!passwordCheck) {
-         setErrorMessage('Por favor, preencha todos os campos');
-      } else if (password != passwordCheck) {
-         setErrorMessage(
-            'Os senhas escritas não conferem, corrija antes de prosseguir'
-         );
-      } else {
-         setErrorMessage('Cadastro realizado com sucesso!');
-         setErrorColor('green');
-         setTimeout(() => {
-            // alternativa: email como key?
-            const newUser = [name, email, password];
-            const newUserString = JSON.stringify(newUser);
-            const randomNumber = Math.floor(Math.random() * 900) + 100;
-            localStorage.setItem(`${name}${randomNumber}`, newUserString);
-            setTimeout(() => {
-               navigate('/');
-            }, 500);
-         }, 500);
-      }
+   function isEmail(email) {
+      return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(email);
    }
 
    function handleSubmit(e) {
       e.preventDefault();
-      formValidation();
+      setErrorMessage(null);
+      setErrorColor(null);
+
+      if (
+         !name.length ||
+         !password.length ||
+         !passwordCheck.length ||
+         !email.length ||
+         !emailCheck.length
+      ) {
+         setErrorMessage('Por favor, preencha todos os campos');
+         return;
+      }
+
+      if (name.length > 10 || name.length < 2) {
+         setErrorMessage(
+            'Insira somente seu primeiro nome. Deve ter entre 2 e 10 caracteres, abrevie se precisar.'
+         );
+         return;
+      }
+
+      if (!isEmail(email)) {
+         setErrorMessage('Por favor, insira um email válido.');
+         return;
+      }
+
+      if (email != emailCheck) {
+         setErrorMessage(
+            'Os emails escritos não conferem, corrija antes de prosseguir'
+         );
+         return;
+      }
+
+      if (password.length < 5 || password.length > 10) {
+         setErrorMessage(
+            'Por favor, insira uma senha que tenha de 5 a 10 caracteres.'
+         );
+         return;
+      }
+
+      if (password != passwordCheck) {
+         setErrorMessage(
+            'Os senhas escritas não conferem, corrija antes de prosseguir'
+         );
+         return;
+      }
+
+      setErrorMessage('Cadastro realizado com sucesso!');
+      setErrorColor('green');
+      setTimeout(() => {
+         // alternativa: email como key?
+         const newUser = { name, email, password };
+         const newUserString = JSON.stringify(newUser);
+         localStorage.setItem(email, newUserString);
+         let user = localStorage.getItem(email);
+         setTimeout(() => {
+            navigate('/');
+         }, 500);
+      }, 500);
    }
 
    return (
