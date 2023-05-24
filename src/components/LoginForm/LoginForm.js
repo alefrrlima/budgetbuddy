@@ -44,7 +44,7 @@ export default function LoginForm() {
       setErrorMessage('Login realizado com sucesso!');
       setErrorColor('green');
       setTimeout(() => {
-         navigate('/home');
+         navigate('/home{}');
       }, 1000);
    }
 
