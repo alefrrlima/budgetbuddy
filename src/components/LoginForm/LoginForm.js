@@ -37,15 +37,23 @@ export default function LoginForm() {
       }
 
       if (email != userData.email || password != userData.password) {
-         setErrorMessage('Dados inválidos, verifique se os preencheu corretamente.');
-         return
+         setErrorMessage(
+            'Dados inválidos, verifique se os preencheu corretamente.'
+         );
+         return;
       }
 
       setErrorMessage('Login realizado com sucesso!');
       setErrorColor('green');
       setTimeout(() => {
-         navigate('/home{}');
-      }, 1000);
+         const loggedUser = { name: userData.name };
+         const loggedUserString = JSON.stringify(loggedUser);
+         localStorage.setItem('loggedUser', loggedUserString);
+
+         setTimeout(() => {
+            navigate('/home');
+         }, 500);
+      }, 500);
    }
 
    return (
