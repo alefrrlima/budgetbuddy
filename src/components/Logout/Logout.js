@@ -7,10 +7,10 @@ import './Logout.css';
 export default function Logout() {
 
    const [userName, setUserName] = useState('');
-   const user = localStorage.getItem('loggedUser');
    useEffect(()=>{
+      const user = localStorage.getItem('loggedUser');
       setUserName(JSON.parse(user).name);
-   },[user])
+   },[])
 
    return (
       <div className="logout">
