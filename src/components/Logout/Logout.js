@@ -1,11 +1,20 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 import './Logout.css';
 
 export default function Logout() {
+
+   const [userName, setUserName] = useState('');
+   const user = localStorage.getItem('loggedUser');
+   useEffect(()=>{
+      setUserName(JSON.parse(user).name);
+   },[user])
+
    return (
       <div className="logout">
-         <h3>Wingslomps</h3>
+         <h3>{userName}</h3>
          <Link className="logoutButton" to="/">
             <svg
                width="22"
