@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { json, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import BBVerticalLogo from '../BBVerticalLogo/BBVerticalLogo';
 import InputBox from '../InputBox/InputBox';
 import Button from '../Button/Button';
 import AlertMessage from '../AlertMessage/AlertMessage';
+import { isEmail } from '../../helpers/validators.js';
 
 import './SignInForm.css';
 
@@ -17,10 +18,6 @@ export default function SignInForm() {
    const [errorMessage, setErrorMessage] = useState('');
    const [errorColor, setErrorColor] = useState('');
    const navigate = useNavigate();
-
-   function isEmail(email) {
-      return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(email);
-   }
 
    function handleSubmit(e) {
       e.preventDefault();
