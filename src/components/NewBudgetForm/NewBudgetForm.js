@@ -53,12 +53,14 @@ export default function NewBudgetForm() {
                   />
                   <div className="checkboxContainer">
                      <InputCheckBox
+                     value={product}
                         label="Produto"
                         onClick={handleProductCheckbox}
                         checked={product}
                      />
 
                      <InputCheckBox
+                     value={service}
                         label="Serviço"
                         onChange={handleServiceCheckbox}
                         checked={service}
