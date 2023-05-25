@@ -1,9 +1,19 @@
+import { useNavigate } from 'react-router-dom';
+
 import './BudgetSelector.css';
 
 import Budget from '../../components/Budget/Budget.js';
 import Button from '../../components/Button/Button.js';
 
 export default function BudgetSelector() {
+
+   const navigate = useNavigate();
+
+   function toNewBudget(e){
+      e.preventDefault();
+      navigate("/new-budget")
+   }
+
    return (
       <div className="budgetSelector">
          <div className="displayBudgets">
@@ -26,6 +36,7 @@ export default function BudgetSelector() {
          <Button 
             className="blueButton" 
             text="CRIAR ORÇAMENTO" 
+            onClick={toNewBudget}
          />
       </div>
    );
