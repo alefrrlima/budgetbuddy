@@ -19,13 +19,13 @@ export default function NewBudgetForm() {
 
    function handleProductCheckbox(e) {
       e.preventDefault();
-      setProduct(!false);
+      setProduct(true);
       setService(false);
    }
 
    function handleServiceCheckbox(e) {
       e.preventDefault();
-      setService(!false);
+      setService(true);
       setProduct(false);
    }
 
