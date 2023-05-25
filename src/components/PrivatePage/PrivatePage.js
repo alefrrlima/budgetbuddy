@@ -13,7 +13,7 @@ export default function PrivatePage({ children }) {
       if (loggedUser) {
          setUser(JSON.parse(loggedUser));
       } else {
-         navigate('/login');
+         navigate('/');
       }
    }, []);
 
