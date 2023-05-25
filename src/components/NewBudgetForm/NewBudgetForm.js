@@ -12,32 +12,79 @@ import './NewBudgetForm.css';
 export default function NewBudgetForm() {
    const [title, setTitle] = useState();
    const [addressee, setAddressee] = useState();
-   const [product, setProduct] = useState();
-   const [service, setService] = useState();
+   const [product, setProduct] = useState(false);
+   const [service, setService] = useState(false);
    const [value, setValue] = useState();
    const [note, setNote] = useState();
+
+   function handleProductCheckbox(e) {
+      e.preventDefault();
+      setProduct(!false);
+      setService(false);
+   }
+
+   function handleServiceCheckbox(e) {
+      e.preventDefault();
+      setService(!false);
+      setProduct(false);
+   }
+
+   function handleSubmit(e) {
+      e.preventDefault();
+      console.log(title, addressee, product, service, value, note);
+   }
 
    return (
       <div className="newBudgetFormContainer">
          <div className="newBudgetForm">
             <form>
                <div className="vContainer">
-                  <InputBox type="text" placeholder="Título" />
-                  <InputBox type="text" placeholder="Destinatário" />
+                  <InputBox
+                     value={title}
+                     type="text"
+                     placeholder="Título"
+                     onChange={(e) => setTitle(e.target.value)}
+                  />
+                  <InputBox
+                     value={addressee}
+                     type="text"
+                     placeholder="Destinatário"
+                     onChange={(e) => setAddressee(e.target.value)}
+                  />
                   <div className="checkboxContainer">
-                     <InputCheckBox value="product" label="Produto" />
+                     <InputCheckBox
+                        label="Produto"
+                        onClick={handleProductCheckbox}
+                        checked={product}
+                     />
 
-                     <InputCheckBox value="service" label="Serviço" />
+                     <InputCheckBox
+                        label="Serviço"
+                        onChange={handleServiceCheckbox}
+                        checked={service}
+                     />
                   </div>
-                  <InputBox type="number" placeholder="Valor" />
+                  <InputBox
+                     value={value}
+                     type="number"
+                     placeholder="Valor"
+                     onChange={(e) => setValue(e.target.value)}
+                  />
                </div>
 
-               <TextArea placeholder="Observações" textContent="" />
+               <TextArea
+                  placeholder="Observações"
+                  value={note}
+                  onChange={(e) => setNote(e.target.value)}
+               />
             </form>
          </div>
-         <Link to="/home">
-            <Button text="CRIAR ORÇAMENTO" className="blueButton" />
-         </Link>
+         <Button
+            type="submit"
+            text="CRIAR ORÇAMENTO"
+            className="blueButton"
+            onClick={handleSubmit}
+         />
          <AlertMessage />
       </div>
    );

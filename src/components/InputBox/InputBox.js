@@ -8,7 +8,7 @@ const InputBox = React.forwardRef((props, ref) => {
          type={props.type}
          placeholder={props.placeholder}
          onChange={props.onChange}
-         value={props.valeu}
+         value={props.value}
          ref={ref}
          id={props.id}
       />
