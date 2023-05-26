@@ -1,8 +1,6 @@
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 import InputBox from '../../components/InputBox/InputBox.js';
-import InputCheckBox from '../../components/InputCheckBox/InputCheckBox.js';
 import TextArea from '../../components/TextArea/TextArea.js';
 import Button from '../../components/Button/Button.js';
 import AlertMessage from '../../components/AlertMessage/AlertMessage.js';
@@ -10,28 +8,30 @@ import AlertMessage from '../../components/AlertMessage/AlertMessage.js';
 import './NewBudgetForm.css';
 
 export default function NewBudgetForm() {
-   const [title, setTitle] = useState();
-   const [addressee, setAddressee] = useState();
-   const [product, setProduct] = useState(false);
-   const [service, setService] = useState(false);
-   const [value, setValue] = useState();
-   const [note, setNote] = useState();
+   const [title, setTitle] = useState(null);
+   const [addressee, setAddressee] = useState(null);
+   const [category, setcategory] = useState(null);
+   const [value, setValue] = useState(null);
+   const [note, setNote] = useState(null);
 
-   function handleProductCheckbox(e) {
-      e.preventDefault();
-      setProduct(true);
-      setService(false);
-   }
+   const productButton = useRef(null);
+   const serviceButton = useRef(null);
 
-   function handleServiceCheckbox(e) {
-      e.preventDefault();
-      setService(true);
-      setProduct(false);
-   }
+   useEffect(() => {
+      if (category == 'Service') {
+         console.log('tentou adicionar a classe ao serviço');
+         serviceButton.current.classList.add('active');
+         productButton.current.classList.remove('active');
+         return;
+      }
+      console.log('tentou adicionar a classe ao produto');
+      productButton.current.classList.add('active');
+      serviceButton.current.classList.remove('active');
+   }, [category]);
 
    function handleSubmit(e) {
       e.preventDefault();
-      console.log(title, addressee, product, service, value, note);
+      console.log(category);
    }
 
    return (
@@ -51,20 +51,23 @@ export default function NewBudgetForm() {
                      placeholder="Destinatário"
                      onChange={(e) => setAddressee(e.target.value)}
                   />
-                  <div className="checkboxContainer">
-                     <InputCheckBox
-                     value={product}
-                        label="Produto"
-                        onClick={handleProductCheckbox}
-                        checked={product}
-                     />
-
-                     <InputCheckBox
-                     value={service}
-                        label="Serviço"
-                        onChange={handleServiceCheckbox}
-                        checked={service}
-                     />
+                  <div className="categorieContainer">
+                     <button
+                        ref={productButton}
+                        type="button"
+                        value={'Produto'}
+                        onClick={(e) => setcategory(e.target.value)}
+                     >
+                        Produto
+                     </button>
+                     <button
+                        ref={serviceButton}
+                        type="button"
+                        value={'Service'}
+                        onClick={(e) => setcategory(e.target.value)}
+                     >
+                        Serviço
+                     </button>
                   </div>
                   <InputBox
                      value={value}

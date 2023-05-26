@@ -32,3 +32,26 @@
       flex-direction: column;
    }
 }
+
+.categorieContainer {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+   margin-bottom: 15px;
+}
+
+.categorieContainer button {
+   padding: 3px;
+   border-radius: 5px;
+   width: 56px;
+   margin: 0 7.5px;
+   cursor: pointer;
+   font-size: 1.25rem;
+   background-color: var(--c9);
+   transition: 0.2s;
+}
+
+.active {
+   background-color: var(--c12);
+}
