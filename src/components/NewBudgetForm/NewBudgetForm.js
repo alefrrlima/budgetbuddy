@@ -18,15 +18,19 @@ export default function NewBudgetForm() {
    const serviceButton = useRef(undefined);
 
    useEffect(() => {
-      if (category == 'Service') {
-         console.log('tentou adicionar a classe ao serviço');
+      const activatedButton = document.querySelectorAll('active');
+      activatedButton.forEach((element) => {
+         element.current.classList.remove('active');
+      });
+      if (category == 'Produto') {
+         console.log('Chegou a condição do produto!');
+         productButton.current.classList.add('active');
+      }
+      else if (category == 'Serviço') {
+         console.log('Chegou a condição do serviço!');
          serviceButton.current.classList.add('active');
-         productButton.current.classList.remove('active');
          return;
       }
-      console.log('tentou adicionar a classe ao produto');
-      productButton.current.classList.add('active');
-      serviceButton.current.classList.remove('active');
    }, [category]);
 
    function handleSubmit(e) {
@@ -63,7 +67,7 @@ export default function NewBudgetForm() {
                      <button
                         ref={serviceButton}
                         type="button"
-                        value={'Service'}
+                        value={'Serviço'}
                         onClick={(e) => setcategory(e.target.value)}
                      >
                         Serviço
