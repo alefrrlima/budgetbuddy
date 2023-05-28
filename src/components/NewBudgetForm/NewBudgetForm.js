@@ -1,4 +1,5 @@
-import { useEffect, useState, useRef } from 'react';
+import { useState } from 'react';
+import classNames from 'classnames';
 
 import InputBox from '../../components/InputBox/InputBox.js';
 import TextArea from '../../components/TextArea/TextArea.js';
@@ -13,25 +14,6 @@ export default function NewBudgetForm() {
    const [category, setcategory] = useState(undefined);
    const [value, setValue] = useState(undefined);
    const [note, setNote] = useState(undefined);
-
-   const productButton = useRef(undefined);
-   const serviceButton = useRef(undefined);
-
-   useEffect(() => {
-      const activatedButton = document.querySelectorAll('active');
-      activatedButton.forEach((element) => {
-         element.current.classList.remove('active');
-      });
-      if (category == 'Produto') {
-         console.log('Chegou a condição do produto!');
-         productButton.current.classList.add('active');
-      }
-      else if (category == 'Serviço') {
-         console.log('Chegou a condição do serviço!');
-         serviceButton.current.classList.add('active');
-         return;
-      }
-   }, [category]);
 
    function handleSubmit(e) {
       e.preventDefault();
@@ -57,18 +39,20 @@ export default function NewBudgetForm() {
                   />
                   <div className="categorieContainer">
                      <button
-                        ref={productButton}
                         type="button"
-                        value={'Produto'}
-                        onClick={(e) => setcategory(e.target.value)}
+                        className={classNames({
+                           activated: category === 'Produto',
+                        })}
+                        onClick={() => setcategory('Produto')}
                      >
                         Produto
                      </button>
                      <button
-                        ref={serviceButton}
                         type="button"
-                        value={'Serviço'}
-                        onClick={(e) => setcategory(e.target.value)}
+                        className={classNames({
+                           activated: category === 'Serviço',
+                        })}
+                        onClick={() => setcategory('Serviço')}
                      >
                         Serviço
                      </button>
