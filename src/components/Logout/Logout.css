@@ -1,4 +1,4 @@
-.logout{
+.logout {
    display: flex;
    flex-direction: row;
    align-items: center;
@@ -14,31 +14,26 @@
 }
 
 .logoutButton {
-   width: 35px;
-   height: 35px;
+   width: fit-content;
+   height: fit-content;
+   padding: 4px;
    border-radius: 5px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
    background-color: var(--c4);
-   fill: var(--c3);
-   stroke: var(--c3);
+   color: var(--c3);
    transition: 0.2s;
+   font-size: 1.5rem;
+   font-weight: 500;
+   cursor: pointer;
 }
 
-.logoutButton:hover, .logoutButton:focus{
+.logoutButton:hover,
+.logoutButton:focus {
    background-color: var(--c3);
-   fill: var(--c4);
-   stroke: var(--c4);
+   color: var(--c4);
 }
 
 @media (max-width: 799px) {
-   .logoutButton, .logout a {
-      width: 26px;
-      height: 26px;
-   }
-   .logoutButton svg {
-      width: 16.5px;
-      height: 16.5px;
+   .logoutButton {
+      font-size: 1.2rem;
    }
 }

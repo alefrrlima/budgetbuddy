@@ -8,14 +8,14 @@ import AlertMessage from '../../components/AlertMessage/AlertMessage.js';
 import './NewBudgetForm.css';
 
 export default function NewBudgetForm() {
-   const [title, setTitle] = useState(null);
-   const [addressee, setAddressee] = useState(null);
-   const [category, setcategory] = useState(null);
-   const [value, setValue] = useState(null);
-   const [note, setNote] = useState(null);
+   const [title, setTitle] = useState(undefined);
+   const [addressee, setAddressee] = useState(undefined);
+   const [category, setcategory] = useState(undefined);
+   const [value, setValue] = useState(undefined);
+   const [note, setNote] = useState(undefined);
 
-   const productButton = useRef(null);
-   const serviceButton = useRef(null);
+   const productButton = useRef(undefined);
+   const serviceButton = useRef(undefined);
 
    useEffect(() => {
       if (category == 'Service') {
