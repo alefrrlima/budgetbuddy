@@ -9,15 +9,28 @@ import AlertMessage from '../../components/AlertMessage/AlertMessage.js';
 import './NewBudgetForm.css';
 
 export default function NewBudgetForm() {
+   const user = JSON.parse(localStorage.getItem('loggedUser'));
+   const loggedUser = localStorage.getItem(user.email);
+   const [userData, setUserData] = useState(JSON.parse(loggedUser));
    const [title, setTitle] = useState(undefined);
    const [addressee, setAddressee] = useState(undefined);
    const [category, setcategory] = useState(undefined);
    const [value, setValue] = useState(undefined);
    const [note, setNote] = useState(undefined);
+   const [newBudget, setNewBudget] = useState(undefined);
 
    function handleSubmit(e) {
       e.preventDefault();
-      console.log(category);
+      setNewBudget({ title, addressee, category, value, note }) ;
+
+      setTimeout(() => {
+         setUserData([...userData, newBudget]);
+
+         setTimeout(() => {
+            console.log(userData);
+         }, 500);
+         
+      }, 500);
    }
 
    return (

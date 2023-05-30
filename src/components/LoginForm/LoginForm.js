@@ -22,7 +22,7 @@ export default function LoginForm() {
       e.preventDefault();
 
       const user = localStorage.getItem(email);
-      const userData = user ? JSON.parse(user) : null;
+      const userData = user ? JSON.parse(user)[0] : null;
 
       if (!password.length || !email.length) {
          setErrorMessage('Por favor, preencha todos os campos');
@@ -46,7 +46,7 @@ export default function LoginForm() {
       setErrorMessage('Login realizado com sucesso!');
       setErrorColor('green');
       setTimeout(() => {
-         const loggedUser = { name: userData.name };
+         const loggedUser = { name: userData.name, email: userData.email };
          const loggedUserString = JSON.stringify(loggedUser);
          localStorage.setItem('loggedUser', loggedUserString);
 

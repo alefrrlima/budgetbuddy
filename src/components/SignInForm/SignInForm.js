@@ -71,8 +71,7 @@ export default function SignInForm() {
       setErrorMessage('Cadastro realizado com sucesso!');
       setErrorColor('green');
       setTimeout(() => {
-         // alternativa: email como key?
-         const newUser = { name, email, password };
+         const newUser = [{ name, email, password }];
          const newUserString = JSON.stringify(newUser);
          localStorage.setItem(email, newUserString);
          let user = localStorage.getItem(email);
