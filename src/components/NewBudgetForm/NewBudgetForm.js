@@ -12,24 +12,23 @@ export default function NewBudgetForm() {
    const user = JSON.parse(localStorage.getItem('loggedUser'));
    const loggedUser = localStorage.getItem(user.email);
    const [userData, setUserData] = useState(JSON.parse(loggedUser));
+
+   const [id, setId] = useState(JSON.parse(loggedUser).length);
    const [title, setTitle] = useState(undefined);
    const [addressee, setAddressee] = useState(undefined);
    const [category, setcategory] = useState(undefined);
    const [value, setValue] = useState(undefined);
    const [note, setNote] = useState(undefined);
-   const [newBudget, setNewBudget] = useState(undefined);
 
    function handleSubmit(e) {
       e.preventDefault();
-      setNewBudget({ title, addressee, category, value, note }) ;
-
+      const newBudget = { id, title, addressee, category, value, note };
       setTimeout(() => {
-         setUserData([...userData, newBudget]);
-
+         const updatedUserData = [...userData, newBudget];
+         setUserData(updatedUserData);
          setTimeout(() => {
-            console.log(userData);
+            localStorage.setItem(user.email, JSON.stringify(updatedUserData));
          }, 500);
-         
       }, 500);
    }
 
