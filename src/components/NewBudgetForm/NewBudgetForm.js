@@ -110,6 +110,7 @@ export default function NewBudgetForm() {
                   <CurrencyInputBox
                      placeholder="Valor"
                      sendCurrencyValue={getCurrencyValue}
+                     value={value}
                   />
 
                   {/* <InputBox
