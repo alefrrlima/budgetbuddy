@@ -32,7 +32,7 @@ export default function NewBudgetForm() {
    function formValidation(e) {
       e.preventDefault();
 
-      console.log(value)
+      console.log(value.value);
 
       if (!title.length || !addressee.length || !value.length || !note.length) {
          setAlertContent('Por favor, preenche todos os campos.');
@@ -53,6 +53,13 @@ export default function NewBudgetForm() {
 
       if (addressee.length > 15 || addressee.length < 2) {
          setAlertContent('O destinatário deve de 2 a 15 caracteres.');
+         return;
+      }
+
+      if (value.length > 15 || value.length < 1) {
+         setAlertContent(
+            'Seu orçamento deve ter um valor de R$ 1,00 a R$ 1.000.000.000,00.'
+         );
          return;
       }
    }
