@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 
 import InputBox from '../../components/InputBox/InputBox.js';
@@ -59,14 +59,20 @@ export default function NewBudgetForm() {
 
    function saveNewBudget(e) {
       e.preventDefault();
-      const newBudget = { id, title, addressee, category, value, note };
+      setId(JSON.parse(loggedUser).length);
       setTimeout(() => {
-         const updatedUserData = [...userData, newBudget];
-         setUserData(updatedUserData);
+         const newBudget = { id, title, addressee, category, value, note };
          setTimeout(() => {
-            localStorage.setItem(user.email, JSON.stringify(updatedUserData));
-         }, 500);
-      }, 500);
+            const updatedUserData = [...userData, newBudget];
+            setUserData(updatedUserData);
+            setTimeout(() => {
+               localStorage.setItem(
+                  user.email,
+                  JSON.stringify(updatedUserData)
+               );
+            }, 300);
+         }, 300);
+      }, 300);
    }
 
    return (
@@ -112,13 +118,6 @@ export default function NewBudgetForm() {
                      sendCurrencyValue={getCurrencyValue}
                      value={value}
                   />
-
-                  {/* <InputBox
-                     value={value}
-                     type="number"
-                     placeholder="Valor"
-                     onChange={(e) => setValue(e.target.value)}
-                  /> */}
                </div>
 
                <TextArea
@@ -132,7 +131,7 @@ export default function NewBudgetForm() {
             type="submit"
             text="CRIAR ORÇAMENTO"
             className="blueButton"
-            onClick={formValidation}
+            onClick={saveNewBudget}
          />
          <AlertMessage color={alertColor} content={alertContent} />
       </div>
