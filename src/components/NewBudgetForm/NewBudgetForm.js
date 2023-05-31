@@ -6,6 +6,8 @@ import TextArea from '../../components/TextArea/TextArea.js';
 import Button from '../../components/Button/Button.js';
 import AlertMessage from '../../components/AlertMessage/AlertMessage.js';
 
+import CurrencyInputBox from '../CurrencyInputBox/CurrencyInputBox.js';
+
 import './NewBudgetForm.css';
 
 export default function NewBudgetForm() {
@@ -14,13 +16,41 @@ export default function NewBudgetForm() {
    const [userData, setUserData] = useState(JSON.parse(loggedUser));
 
    const [id, setId] = useState(JSON.parse(loggedUser).length);
-   const [title, setTitle] = useState(undefined);
-   const [addressee, setAddressee] = useState(undefined);
-   const [category, setcategory] = useState(undefined);
-   const [value, setValue] = useState(undefined);
-   const [note, setNote] = useState(undefined);
+   const [title, setTitle] = useState('');
+   const [addressee, setAddressee] = useState('');
+   const [category, setcategory] = useState('');
+   const [value, setValue] = useState('');
+   const [note, setNote] = useState('');
 
-   function handleSubmit(e) {
+   const [alertColor, setAlertColor] = useState();
+   const [alertContent, setAlertContent] = useState();
+
+   function formValidation(e) {
+      e.preventDefault();
+      if (!title.length || !addressee.length || !value.length || !note.length) {
+         setAlertContent('Por favor, preenche todos os campos.');
+         return;
+      }
+
+      if (!category.length) {
+         setAlertContent(
+            'Seu orçamento trata de um produto ou um serviço? Seleciona uma opção.'
+         );
+         return;
+      }
+
+      if (title.length > 15 || title.length < 2) {
+         setAlertContent('O título deve de 2 a 15 caracteres.');
+         return;
+      }
+
+      if (addressee.length > 15 || addressee.length < 2) {
+         setAlertContent('O destinatário deve de 2 a 15 caracteres.');
+         return;
+      }
+   }
+
+   function saveNewBudget(e) {
       e.preventDefault();
       const newBudget = { id, title, addressee, category, value, note };
       setTimeout(() => {
@@ -69,12 +99,15 @@ export default function NewBudgetForm() {
                         Serviço
                      </button>
                   </div>
-                  <InputBox
+
+                  <CurrencyInputBox placeholder="Valor" />
+
+                  {/* <InputBox
                      value={value}
                      type="number"
                      placeholder="Valor"
                      onChange={(e) => setValue(e.target.value)}
-                  />
+                  /> */}
                </div>
 
                <TextArea
@@ -88,9 +121,9 @@ export default function NewBudgetForm() {
             type="submit"
             text="CRIAR ORÇAMENTO"
             className="blueButton"
-            onClick={handleSubmit}
+            onClick={formValidation}
          />
-         <AlertMessage />
+         <AlertMessage color={alertColor} content={alertContent} />
       </div>
    );
 }

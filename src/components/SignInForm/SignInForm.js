@@ -37,7 +37,7 @@ export default function SignInForm() {
 
       if (name.length > 10 || name.length < 2) {
          setErrorMessage(
-            'Insira somente seu primeiro nome. Deve ter entre 2 e 10 caracteres, abrevie se precisar.'
+            'Insira somente seu primeiro nome. Deve ter de 2 a 10 caracteres, abrevie se precisar.'
          );
          return;
       }
