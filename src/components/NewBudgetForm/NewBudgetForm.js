@@ -32,6 +32,8 @@ export default function NewBudgetForm() {
    function formValidation(e) {
       e.preventDefault();
 
+      console.log(value)
+
       if (!title.length || !addressee.length || !value.length || !note.length) {
          setAlertContent('Por favor, preenche todos os campos.');
          return;
