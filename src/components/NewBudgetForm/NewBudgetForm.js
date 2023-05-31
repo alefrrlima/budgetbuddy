@@ -27,6 +27,9 @@ export default function NewBudgetForm() {
 
    function formValidation(e) {
       e.preventDefault();
+
+      console.log(value);
+
       if (!title.length || !addressee.length || !value.length || !note.length) {
          setAlertContent('Por favor, preenche todos os campos.');
          return;
@@ -48,6 +51,10 @@ export default function NewBudgetForm() {
          setAlertContent('O destinatário deve de 2 a 15 caracteres.');
          return;
       }
+   }
+
+   function getCurrencyValue(currencyValue) {
+      setValue(currencyValue);
    }
 
    function saveNewBudget(e) {
@@ -100,7 +107,10 @@ export default function NewBudgetForm() {
                      </button>
                   </div>
 
-                  <CurrencyInputBox placeholder="Valor" />
+                  <CurrencyInputBox
+                     placeholder="Valor"
+                     sendCurrencyValue={getCurrencyValue}
+                  />
 
                   {/* <InputBox
                      value={value}

@@ -1,10 +1,10 @@
 import './CurrencyInputBox.css';
 import { NumericFormat } from 'react-number-format';
 
-export default function CurrencyInputBox({ value, placeholder, onChange}) {
+export default function CurrencyInputBox({ value, placeholder, sendCurrencyValue }) {
    return (
       <NumericFormat
-         className='currencyInputBox'
+         className="currencyInputBox"
          value={value}
          thousandSeparator={false}
          prefix={'R$ '}
@@ -12,10 +12,10 @@ export default function CurrencyInputBox({ value, placeholder, onChange}) {
          fixedDecimalScale={true}
          allowNegative={false}
          onValueChange={(values) => {
-            console.log(values.value);
+            const currencyValue = values.value
+            sendCurrencyValue(currencyValue);
          }}
          placeholder={placeholder}
-         onChange={onChange}
       />
    );
 }
