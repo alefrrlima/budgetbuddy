@@ -25,10 +25,12 @@ export default function NewBudgetForm() {
    const [alertColor, setAlertColor] = useState();
    const [alertContent, setAlertContent] = useState();
 
+   function getCurrencyValue(currencyValue) {
+      setValue(currencyValue);
+   }
+
    function formValidation(e) {
       e.preventDefault();
-
-      console.log(value);
 
       if (!title.length || !addressee.length || !value.length || !note.length) {
          setAlertContent('Por favor, preenche todos os campos.');
@@ -51,10 +53,6 @@ export default function NewBudgetForm() {
          setAlertContent('O destinatário deve de 2 a 15 caracteres.');
          return;
       }
-   }
-
-   function getCurrencyValue(currencyValue) {
-      setValue(currencyValue);
    }
 
    function saveNewBudget(e) {
@@ -131,7 +129,7 @@ export default function NewBudgetForm() {
             type="submit"
             text="CRIAR ORÇAMENTO"
             className="blueButton"
-            onClick={saveNewBudget}
+            onClick={formValidation}
          />
          <AlertMessage color={alertColor} content={alertContent} />
       </div>
