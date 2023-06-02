@@ -79,6 +79,10 @@ export default function NewBudgetForm() {
          }
 
          if (note.length > 220) {
+            setAlertContent(
+               'Suas observações devem ter no máximo 220 caracteres.'
+            );
+            return;
          }
 
          setAlertContent('Orçamento criado com sucesso!');
