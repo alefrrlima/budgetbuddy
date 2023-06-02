@@ -19,7 +19,7 @@ export default function NewBudgetForm() {
    const [title, setTitle] = useState('');
    const [addressee, setAddressee] = useState('');
    const [category, setcategory] = useState('');
-   const [value, setValue] = useState('');
+   const [value, setValue] = useState(0);
    const [note, setNote] = useState('');
 
    const [alertColor, setAlertColor] = useState('');
@@ -58,7 +58,7 @@ export default function NewBudgetForm() {
          return;
       }
 
-      if (valueString.length > 13 || valueString.length < 1) {
+      if (valueString.length > 13 || valueString.length < 1 || value < 1) {
          setAlertContent(
             'Seu orçamento deve ter um valor de R$ 1,00 a R$ 1.000.000.000,00.'
          );
@@ -126,7 +126,7 @@ export default function NewBudgetForm() {
                   </div>
 
                   <CurrencyInputBox
-                     placeholder="Valor"
+                     placeholder={0}
                      sendCurrencyValue={getCurrencyValue}
                      value={value}
                   />
