@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import classNames from 'classnames';
 
 import InputBox from '../../components/InputBox/InputBox.js';
@@ -11,6 +12,7 @@ import CurrencyInputBox from '../CurrencyInputBox/CurrencyInputBox.js';
 import './NewBudgetForm.css';
 
 export default function NewBudgetForm() {
+   const navigate = useNavigate();
    const user = JSON.parse(localStorage.getItem('loggedUser'));
    const loggedUser = localStorage.getItem(user.email);
    const [userData, setUserData] = useState(JSON.parse(loggedUser));
@@ -39,59 +41,7 @@ export default function NewBudgetForm() {
       setValue(currencyValue);
    }
 
-   function formValidation(e) {
-      e.preventDefault();
-      setAlertColor('');
-      setAlertContent('');
-      setTimeout(() => {
-         if (
-            !title.length ||
-            !addressee.length ||
-            !valueString.length ||
-            !note.length
-         ) {
-            setAlertContent('Por favor, preenche todos os campos.');
-            return;
-         }
-
-         if (!category.length) {
-            setAlertContent(
-               'O orçamento trata de um produto ou um serviço? Seleciona uma opção.'
-            );
-            return;
-         }
-
-         if (title.length > 15 || title.length < 2) {
-            setAlertContent('O título deve de 2 a 15 caracteres.');
-            return;
-         }
-
-         if (addressee.length > 15 || addressee.length < 2) {
-            setAlertContent('O destinatário deve de 2 a 15 caracteres.');
-            return;
-         }
-
-         if (valueString.length > 13 || valueString.length < 1 || value < 1) {
-            setAlertContent(
-               'O orçamento deve ter valor entre R$ 1,00 e R$ 1.000.000.000,00.'
-            );
-            return;
-         }
-
-         if (note.length > 220) {
-            setAlertContent(
-               'Suas observações devem ter no máximo 220 caracteres.'
-            );
-            return;
-         }
-
-         setAlertContent('Orçamento criado com sucesso!');
-         setAlertColor('green');
-      }, 100);
-   }
-
-   function saveNewBudget(e) {
-      e.preventDefault();
+   function saveNewBudget() {
       setId(JSON.parse(loggedUser).length);
       setTimeout(() => {
          const newBudget = { id, title, addressee, category, value, note };
@@ -106,6 +56,63 @@ export default function NewBudgetForm() {
             }, 300);
          }, 300);
       }, 300);
+   }
+
+   function formValidation(e) {
+      e.preventDefault();
+      setAlertColor('');
+      setAlertContent('');
+
+      if (
+         !title.length ||
+         !addressee.length ||
+         !valueString.length ||
+         !note.length
+      ) {
+         setAlertContent('Por favor, preenche todos os campos.');
+         return;
+      }
+
+      if (!category.length) {
+         setAlertContent(
+            'O orçamento trata de um produto ou um serviço? Seleciona uma opção.'
+         );
+         return;
+      }
+
+      if (title.length > 25 || title.length < 2) {
+         setAlertContent('O título deve de 2 a 25 caracteres.');
+         return;
+      }
+
+      if (addressee.length > 25 || addressee.length < 2) {
+         setAlertContent('O destinatário deve de 2 a 25 caracteres.');
+         return;
+      }
+
+      if (valueString.length > 13 || valueString.length < 1 || value < 1) {
+         setAlertContent(
+            'O orçamento deve ter valor entre R$ 1,00 e R$ 1.000.000.000,00.'
+         );
+         return;
+      }
+
+      if (note.length > 220) {
+         setAlertContent(
+            'Suas observações devem ter no máximo 220 caracteres.'
+         );
+         return;
+      }
+
+      setAlertContent('Orçamento criado com sucesso!');
+      setAlertColor('green');
+
+      setTimeout(() => {
+         saveNewBudget();
+         setTimeout(() => {
+            navigate('/home');
+         }, 1000);
+      }, 500);
    }
 
    return (
