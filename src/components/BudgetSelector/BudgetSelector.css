@@ -1,4 +1,4 @@
-.budgetSelector{
+.budgetSelector {
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -15,8 +15,13 @@
    width: 100vw;
 }
 
+.noBudgetMessage {
+   margin: 0;
+   text-align: center;
+}
+
 @media (max-width: 799px) {
-   .displayBudgets{
+   .displayBudgets {
       padding: 7.5px;
       margin: 0 -15px;
    }
