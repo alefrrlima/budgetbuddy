@@ -22,8 +22,8 @@ export default function NewBudgetForm() {
    const [value, setValue] = useState('');
    const [note, setNote] = useState('');
 
-   const [alertColor, setAlertColor] = useState();
-   const [alertContent, setAlertContent] = useState();
+   const [alertColor, setAlertColor] = useState('');
+   const [alertContent, setAlertContent] = useState('');
 
    function getCurrencyValue(currencyValue) {
       setValue(currencyValue);
@@ -31,10 +31,12 @@ export default function NewBudgetForm() {
 
    function formValidation(e) {
       e.preventDefault();
+      const valueString = value.toString();
+      console.log(title, addressee, value, note);
+      setAlertColor('');
+      setAlertContent('');
 
-      console.log(value.length);
-
-      if (!title.length || !addressee.length || !value.length || !note.length) {
+      if (!title.length || !addressee.length || !valueString.length || !note.length) {
          setAlertContent('Por favor, preenche todos os campos.');
          return;
       }
@@ -56,12 +58,15 @@ export default function NewBudgetForm() {
          return;
       }
 
-      if (value.length > 15 || value.length < 1) {
+      if (valueString.length > 13 || valueString.length < 1) {
          setAlertContent(
             'Seu orçamento deve ter um valor de R$ 1,00 a R$ 1.000.000.000,00.'
          );
          return;
       }
+
+      setAlertContent('Orçamento criado com sucesso!');
+      setAlertColor('green');
    }
 
    function saveNewBudget(e) {
