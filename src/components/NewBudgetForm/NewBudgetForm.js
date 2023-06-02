@@ -19,11 +19,21 @@ export default function NewBudgetForm() {
    const [title, setTitle] = useState('');
    const [addressee, setAddressee] = useState('');
    const [category, setcategory] = useState('');
-   const [value, setValue] = useState(0);
+   const [value, setValue] = useState('');
    const [note, setNote] = useState('');
+
+   const [valueString, setValueString] = useState('');
 
    const [alertColor, setAlertColor] = useState('');
    const [alertContent, setAlertContent] = useState('');
+
+   useEffect(() => {
+      if (typeof value == 'undefined') {
+         setValueString(0);
+      } else {
+         setValueString(value.toString());
+      }
+   }, [value]);
 
    function getCurrencyValue(currencyValue) {
       setValue(currencyValue);
@@ -31,42 +41,49 @@ export default function NewBudgetForm() {
 
    function formValidation(e) {
       e.preventDefault();
-      const valueString = value.toString();
-      console.log(title, addressee, value, note);
       setAlertColor('');
       setAlertContent('');
+      setTimeout(() => {
+         if (
+            !title.length ||
+            !addressee.length ||
+            !valueString.length ||
+            !note.length
+         ) {
+            setAlertContent('Por favor, preenche todos os campos.');
+            return;
+         }
 
-      if (!title.length || !addressee.length || !valueString.length || !note.length) {
-         setAlertContent('Por favor, preenche todos os campos.');
-         return;
-      }
+         if (!category.length) {
+            setAlertContent(
+               'O orçamento trata de um produto ou um serviço? Seleciona uma opção.'
+            );
+            return;
+         }
 
-      if (!category.length) {
-         setAlertContent(
-            'Seu orçamento trata de um produto ou um serviço? Seleciona uma opção.'
-         );
-         return;
-      }
+         if (title.length > 15 || title.length < 2) {
+            setAlertContent('O título deve de 2 a 15 caracteres.');
+            return;
+         }
 
-      if (title.length > 15 || title.length < 2) {
-         setAlertContent('O título deve de 2 a 15 caracteres.');
-         return;
-      }
+         if (addressee.length > 15 || addressee.length < 2) {
+            setAlertContent('O destinatário deve de 2 a 15 caracteres.');
+            return;
+         }
 
-      if (addressee.length > 15 || addressee.length < 2) {
-         setAlertContent('O destinatário deve de 2 a 15 caracteres.');
-         return;
-      }
+         if (valueString.length > 13 || valueString.length < 1 || value < 1) {
+            setAlertContent(
+               'O orçamento deve ter valor entre R$ 1,00 e R$ 1.000.000.000,00.'
+            );
+            return;
+         }
 
-      if (valueString.length > 13 || valueString.length < 1 || value < 1) {
-         setAlertContent(
-            'Seu orçamento deve ter um valor de R$ 1,00 a R$ 1.000.000.000,00.'
-         );
-         return;
-      }
+         if (note.length > 220) {
+         }
 
-      setAlertContent('Orçamento criado com sucesso!');
-      setAlertColor('green');
+         setAlertContent('Orçamento criado com sucesso!');
+         setAlertColor('green');
+      }, 100);
    }
 
    function saveNewBudget(e) {
@@ -126,7 +143,7 @@ export default function NewBudgetForm() {
                   </div>
 
                   <CurrencyInputBox
-                     placeholder={0}
+                     placeholder="Valor"
                      sendCurrencyValue={getCurrencyValue}
                      value={value}
                   />
