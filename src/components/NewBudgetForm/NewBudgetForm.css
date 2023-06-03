@@ -20,17 +20,8 @@
    justify-content: space-between;
 }
 
-@media (max-width: 799px) {
-   .newBudgetForm {
-      padding: 15px 15px 0 15px;
-      margin-bottom: 0;
-   }
-}
-
-@media (max-width: 644px) {
-   .newBudgetForm form {
-      flex-direction: column;
-   }
+.inputBox::placeholder {
+   color: var(--c7);
 }
 
 .categorieContainer {
@@ -51,6 +42,71 @@
    transition: 0.2s;
 }
 
-.activated{
+.activated {
    background-color: var(--c12);
+}
+
+.itemQuantityInput,
+.itemNameInput {
+   height: 40px;
+   background-color: var(--c9);
+   font-size: 1.8rem;
+   font-weight: 400;
+   font-family: 'Inter', sans-serif;
+   border-radius: 5px;
+   margin-bottom: 15px;
+   appearance: none;
+}
+
+.itemInput {
+   display: flex;
+   flex-direction: row;
+   height: 200px;
+   margin-left: 15px;
+}
+
+.itemQuantityInput {
+   width: 40px;
+   padding: 9px 0 9px 9px;
+}
+
+.itemNameInput {
+   width: 195px;
+   padding: 9px;
+   margin: 0 15px 15px 15px;
+}
+
+.itemSubmitButton {
+   width: 40px;
+   height: 40px;
+   border-radius: 5px;
+   padding: 5.5px;
+   background-color: var(--c6);
+   cursor: pointer;
+}
+
+.itemSubmitButton svg path {
+   fill: var(--c5);
+}
+
+.itemQuantityInput::placeholder,
+.itemNameInput::placeholder {
+   color: var(--c7);
+}
+
+@media (max-width: 799px) {
+   .newBudgetForm {
+      padding: 15px 15px 0 15px;
+      margin-bottom: 0;
+   }
+}
+
+@media (max-width: 644px) {
+   .newBudgetForm form {
+      flex-direction: column;
+   }
+
+   .itemInput {
+      margin-left: 0;
+   }
 }

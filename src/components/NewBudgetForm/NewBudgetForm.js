@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import classNames from 'classnames';
 
 import InputBox from '../../components/InputBox/InputBox.js';
-import TextArea from '../../components/TextArea/TextArea.js';
 import Button from '../../components/Button/Button.js';
 import AlertMessage from '../../components/AlertMessage/AlertMessage.js';
 
@@ -22,7 +21,8 @@ export default function NewBudgetForm() {
    const [addressee, setAddressee] = useState('');
    const [category, setcategory] = useState('');
    const [value, setValue] = useState('');
-   const [note, setNote] = useState('');
+   const [itemQuantity, setItemQuantity] = useState('');
+   const [itemName, setItemName] = useState('');
 
    const [valueString, setValueString] = useState('');
 
@@ -37,6 +37,10 @@ export default function NewBudgetForm() {
       }
    }, [value]);
 
+   function handleWheel(e) {
+      e.preventDefault();
+   }
+
    function getCurrencyValue(currencyValue) {
       setValue(currencyValue);
    }
@@ -44,7 +48,7 @@ export default function NewBudgetForm() {
    function saveNewBudget() {
       setId(JSON.parse(loggedUser).length);
       setTimeout(() => {
-         const newBudget = { id, title, addressee, category, value, note };
+         const newBudget = { id, title, addressee, category, value };
          setTimeout(() => {
             const updatedUserData = [...userData, newBudget];
             setUserData(updatedUserData);
@@ -63,12 +67,7 @@ export default function NewBudgetForm() {
       setAlertColor('');
       setAlertContent('');
 
-      if (
-         !title.length ||
-         !addressee.length ||
-         !valueString.length ||
-         !note.length
-      ) {
+      if (!title.length || !addressee.length || !valueString.length) {
          setAlertContent('Por favor, preenche todos os campos.');
          return;
       }
@@ -93,13 +92,6 @@ export default function NewBudgetForm() {
       if (valueString.length > 13 || valueString.length < 1 || value < 1) {
          setAlertContent(
             'O orçamento deve ter valor entre R$ 1,00 e R$ 1.000.000.000,00.'
-         );
-         return;
-      }
-
-      if (note.length > 220) {
-         setAlertContent(
-            'Suas observações devem ter no máximo 220 caracteres.'
          );
          return;
       }
@@ -160,11 +152,41 @@ export default function NewBudgetForm() {
                   />
                </div>
 
-               <TextArea
-                  placeholder="Observações"
-                  value={note}
-                  onChange={(e) => setNote(e.target.value)}
-               />
+               <div className="itemsContainer">
+                  <div className='itemInput'>
+                     <input
+                        className="itemQuantityInput"
+                        placeholder="00"
+                        type="number"
+                        min={1}
+                        max={99}
+                        maxLength={2}
+                        value={itemQuantity}
+                        onChange={(e) => setItemQuantity(e.target.value)}
+                     />
+                     <input
+                        className="itemNameInput"
+                        placeholder="Item"
+                        type="text"
+                        value={itemName}
+                        onChange={(e) => setItemName(e.target.value)}
+                     />
+                     <button className="itemSubmitButton" onClick={''}>
+                        <svg
+                           width="30"
+                           height="30"
+                           xmlns="http://www.w3.org/2000/svg"
+                        >
+                           <path
+                              d="M14.4913 28.5C14.0638 28.5 13.7083 28.3563 13.425 28.0688C13.1417 27.7813 13 27.425 13 27V16H2C1.575 16 1.21875 15.8554 0.93125 15.5663C0.64375 15.2771 0.5 14.9187 0.5 14.4913C0.5 14.0638 0.64375 13.7083 0.93125 13.425C1.21875 13.1417 1.575 13 2 13H13V2C13 1.575 13.1446 1.21875 13.4337 0.93125C13.7229 0.64375 14.0813 0.5 14.5087 0.5C14.9362 0.5 15.2917 0.64375 15.575 0.93125C15.8583 1.21875 16 1.575 16 2V13H27C27.425 13 27.7813 13.1446 28.0688 13.4337C28.3563 13.7229 28.5 14.0813 28.5 14.5087C28.5 14.9362 28.3563 15.2917 28.0688 15.575C27.7813 15.8583 27.425 16 27 16H16V27C16 27.425 15.8554 27.7813 15.5663 28.0688C15.2771 28.3563 14.9187 28.5 14.4913 28.5Z"
+                              fill="black"
+                           />
+                        </svg>
+                     </button>
+                  </div>
+
+                  <div className="displayedItems"></div>
+               </div>
             </form>
          </div>
          <Button
