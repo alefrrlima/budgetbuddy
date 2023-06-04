@@ -153,7 +153,7 @@ export default function NewBudgetForm() {
                </div>
 
                <div className="itemsContainer">
-                  <div className='itemInput'>
+                  <div className="itemInput">
                      <input
                         className="itemQuantityInput"
                         placeholder="00"
@@ -185,7 +185,13 @@ export default function NewBudgetForm() {
                      </button>
                   </div>
 
-                  <div className="displayedItems"></div>
+                  <div className="displayedItems">
+                     <div>
+                        <span>01</span>
+                        <span>Item Item Item</span>
+                        <button></button>
+                     </div>
+                  </div>
                </div>
             </form>
          </div>
