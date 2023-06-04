@@ -1,4 +1,4 @@
-.button{
+.button {
    border-radius: 5px;
    padding: 8px;
    width: fit-content;
@@ -10,37 +10,34 @@
 }
 
 .blueButton {
-   color: var(--c12);
-   background-color: var(--c10);
+   color: var(--c10);
+   background-color: var(--c12);
    transition: 0.2s;
 }
 
 .blueButton:hover,
 .blueButton:focus {
-   color: var(--c10);
-   background-color: var(--c12);
+   background-color: var(--c12-d);
 }
 
 .greenButton {
-   color: var(--c6);
-   background-color: var(--c5);
+   color: var(--c5);
+   background-color: var(--c6);
    transition: 0.2s;
 }
 
 .greenButton:hover,
 .greenButton:focus {
-   color: var(--c5);
-   background-color: var(--c6);
+   background-color: var(--c6-d);
 }
 
 .redButton {
-   color: var(--c4);
-   background-color: var(--c3);
+   color: var(--c3);
+   background-color: var(--c4);
    transition: 0.2s;
 }
 
 .redButton:hover,
 .redButton:focus {
-   color: var(--c3);
-   background-color: var(--c4);
+   background-color: var(--c4-d);
 }

@@ -28,8 +28,7 @@
 
 .logoutButton:hover,
 .logoutButton:focus {
-   background-color: var(--c3);
-   color: var(--c4);
+   background-color: var(--c4-d);
 }
 
 @media (max-width: 799px) {

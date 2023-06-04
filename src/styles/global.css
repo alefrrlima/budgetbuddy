@@ -7,14 +7,17 @@
    --c2: #ffffff;
    --c3: #ff0e0e;
    --c4: #ffc2c2;
-   --c5: #00ae00;
+   --c4-d: #ffaeae;
+   --c5: #008e00;
    --c6: #56ff56;
+   --c6-d: #5aef5a;
    --c7: #494949;
    --c8: #959595;
    --c9: #eaeaea;
    --c10: #263238;
    --c11: #597684;
    --c12: #8cbad0;
+   --c12-d: #66accc;
 }
 
 * {
@@ -122,7 +125,6 @@ p {
 }
 
 @media (max-width: 799px) {
-
    h1 {
       font-size: 3.5rem;
       margin-bottom: 15px;

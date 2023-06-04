@@ -88,6 +88,12 @@
    padding: 5.5px;
    background-color: var(--c6);
    cursor: pointer;
+   transition: 0.2s;
+}
+
+.itemSubmitButton:hover,
+.itemSubmitButton:focus {
+   background-color: var(--c6-d);
 }
 
 .itemSubmitButton svg path {
@@ -156,5 +162,5 @@
 
 .trashButton svg:hover,
 .trashButton svg:focus {
-   fill: var(--c3);
+   fill: var(--c4-d);
 }
