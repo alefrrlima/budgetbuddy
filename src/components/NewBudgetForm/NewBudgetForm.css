@@ -58,11 +58,16 @@
    appearance: none;
 }
 
+.itemsContainer {
+   display: flex;
+   flex-direction: column;
+   height: 200px;
+   margin-left: 15px;
+}
+
 .itemInput {
    display: flex;
    flex-direction: row;
-   height: 200px;
-   margin-left: 15px;
 }
 
 .itemQuantityInput {
@@ -71,7 +76,7 @@
 }
 
 .itemNameInput {
-   width: 195px;
+   width: 190px;
    padding: 9px;
    margin: 0 15px 15px 15px;
 }
@@ -106,7 +111,50 @@
       flex-direction: column;
    }
 
-   .itemInput {
+   .itemsContainer {
       margin-left: 0;
    }
+}
+
+.displayedItems {
+   display: flex;
+   flex-direction: column;
+}
+.displayedItem {
+   display: flex;
+   flex-direction: row;
+   color: var();
+}
+
+.displayedItemQuantity {
+   color: var(--c9);
+}
+
+.displayedItemQuantity,
+.trashButton {
+   width: 40px;
+   height: 20px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.displayedItemName {
+   min-width: 190px;
+   margin: 0 15px;
+   color: var(--c9);
+}
+.trashButton {
+   background-color: var(--c10);
+   fill: var(--c9);
+   cursor: pointer;
+}
+
+.trashButton svg {
+   fill: var(--c9);
+   transition: 0.2s;
+}
+
+.trashButton svg:hover,
+.trashButton svg:focus {
+   fill: var(--c3);
 }
