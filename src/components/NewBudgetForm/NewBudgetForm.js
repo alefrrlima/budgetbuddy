@@ -22,8 +22,8 @@ export default function NewBudgetForm() {
    const [category, setcategory] = useState('');
    const [value, setValue] = useState('');
 
-   const [itemQuantity, setItemQuantity] = useState(undefined);
-   const [itemName, setItemName] = useState(undefined);
+   const [itemQuantity, setItemQuantity] = useState('');
+   const [itemName, setItemName] = useState('');
    const [itemsList, setItemsList] = useState([]);
 
    const [valueString, setValueString] = useState('');
@@ -39,8 +39,7 @@ export default function NewBudgetForm() {
       }
    }, [value]);
 
-   function addNewItem(e) {
-      e.preventDefault();
+   function addNewItem() {
       const newItem = { itemId: itemsList.length - 1, itemQuantity, itemName };
       if (itemsList == []) {
          setItemsList([newItem]);
@@ -55,9 +54,44 @@ export default function NewBudgetForm() {
       setItemsList(updatedList);
    }
 
+   function handleItemSubmit(e) {
+      e.preventDefault();
+      setAlertContent('');
+
+      if (itemsList.length == 5) {
+         setAlertContent('Você pode adicionar até 5 itens ao seu orçamento.');
+         return;
+      }
+
+      if (!itemName.length || !itemQuantity.length) {
+         setAlertContent(
+            'Por favor, preencha a quantidade e o nome do item que deseja adicionar.'
+         );
+         return;
+      }
+
+      if (!itemQuantity.length || itemQuantity < 1) {
+         setAlertContent('Adicione ao menos 1 unidade ao seu item.');
+         return;
+      }
+
+      if (itemQuantity > 99) {
+         setAlertContent('Limite a quantidade do seu item em 99 unidades.');
+         return;
+      }
+
+      if (itemName.length > 20) {
+         setAlertContent(
+            'O nome do seu item deve ter no máximo 20 caracteres.'
+         );
+         return;
+      }
+      addNewItem();
+   }
+
    const log = (e) => {
       e.preventDefault();
-      console.log(itemsList);
+      console.log(itemQuantity, itemName);
    };
 
    function getCurrencyValue(currencyValue) {
@@ -190,7 +224,10 @@ export default function NewBudgetForm() {
                         value={itemName}
                         onChange={(e) => setItemName(e.target.value)}
                      />
-                     <button className="itemSubmitButton" onClick={addNewItem}>
+                     <button
+                        className="itemSubmitButton"
+                        onClick={handleItemSubmit}
+                     >
                         <svg
                            width="30"
                            height="30"
