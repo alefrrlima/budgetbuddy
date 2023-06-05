@@ -40,7 +40,7 @@ export default function NewBudgetForm() {
    }, [value]);
 
    function addNewItem() {
-      const newItem = { itemId: itemsList.length - 1, itemQuantity, itemName };
+      const newItem = { itemQuantity, itemName };
       if (itemsList == []) {
          setItemsList([newItem]);
       } else {
@@ -98,7 +98,7 @@ export default function NewBudgetForm() {
    function saveNewBudget() {
       setId(JSON.parse(loggedUser).length);
       setTimeout(() => {
-         const newBudget = { id, title, addressee, category, value };
+         const newBudget = { id, title, addressee, category, value, itemsList };
          setTimeout(() => {
             const updatedUserData = [...userData, newBudget];
             setUserData(updatedUserData);
@@ -143,6 +143,11 @@ export default function NewBudgetForm() {
          setAlertContent(
             'O orçamento deve ter valor entre R$ 1,00 e R$ 1.000.000.000,00.'
          );
+         return;
+      }
+
+      if (!itemsList.length) {
+         setAlertContent('Adicione ao menos um item ao seu orçamento.');
          return;
       }
 
