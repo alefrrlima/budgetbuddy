@@ -46,6 +46,8 @@ export default function NewBudgetForm() {
       } else {
          setItemsList([...itemsList, newItem]);
       }
+      setItemQuantity('');
+      setItemName('');
    }
 
    function deleteItem(index) {
@@ -89,11 +91,6 @@ export default function NewBudgetForm() {
       addNewItem();
    }
 
-   const log = (e) => {
-      e.preventDefault();
-      console.log(itemQuantity, itemName);
-   };
-
    function getCurrencyValue(currencyValue) {
       setValue(currencyValue);
    }
@@ -115,7 +112,7 @@ export default function NewBudgetForm() {
       }, 300);
    }
 
-   function formValidation(e) {
+   function handleFormSubmit(e) {
       e.preventDefault();
       setAlertColor('');
       setAlertContent('');
@@ -274,7 +271,7 @@ export default function NewBudgetForm() {
             type="submit"
             text="CRIAR ORÇAMENTO"
             className="blueButton"
-            onClick={formValidation}
+            onClick={handleFormSubmit}
          />
          <AlertMessage color={alertColor} content={alertContent} />
       </div>
