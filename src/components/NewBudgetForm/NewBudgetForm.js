@@ -95,6 +95,23 @@ export default function NewBudgetForm() {
       setValue(currencyValue);
    }
 
+   function saveNewBudget() {
+      setId(JSON.parse(loggedUser).length);
+      setTimeout(() => {
+         const newBudget = { id, title, addressee, category, value };
+         setTimeout(() => {
+            const updatedUserData = [...userData, newBudget];
+            setUserData(updatedUserData);
+            setTimeout(() => {
+               localStorage.setItem(
+                  user.email,
+                  JSON.stringify(updatedUserData)
+               );
+            }, 300);
+         }, 300);
+      }, 300);
+   }
+
    function handleFormSubmit(e) {
       e.preventDefault();
       setAlertColor('');
@@ -138,23 +155,6 @@ export default function NewBudgetForm() {
             navigate('/home');
          }, 1000);
       }, 500);
-   }
-
-   function saveNewBudget() {
-      setId(JSON.parse(loggedUser).length);
-      setTimeout(() => {
-         const newBudget = { id, title, addressee, category, value };
-         setTimeout(() => {
-            const updatedUserData = [...userData, newBudget];
-            setUserData(updatedUserData);
-            setTimeout(() => {
-               localStorage.setItem(
-                  user.email,
-                  JSON.stringify(updatedUserData)
-               );
-            }, 300);
-         }, 300);
-      }, 300);
    }
 
    return (
