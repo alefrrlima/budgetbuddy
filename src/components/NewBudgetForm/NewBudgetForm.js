@@ -194,7 +194,6 @@ export default function NewBudgetForm() {
                         Serviço
                      </button>
                   </div>
-
                   <CurrencyInputBox
                      placeholder="Valor"
                      sendCurrencyValue={getCurrencyValue}
