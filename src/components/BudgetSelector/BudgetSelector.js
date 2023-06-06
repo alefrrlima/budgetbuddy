@@ -11,6 +11,7 @@ export default function BudgetSelector() {
    const user = JSON.parse(localStorage.getItem('loggedUser'));
    const loggedUser = localStorage.getItem(user.email);
    const [userData, setUserData] = useState(JSON.parse(loggedUser));
+   const [userBudgets, setUserBudgets] = useState(userData.slice(1));
 
    function toNewBudget(e) {
       e.preventDefault();
