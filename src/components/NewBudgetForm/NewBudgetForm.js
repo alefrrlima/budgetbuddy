@@ -26,18 +26,8 @@ export default function NewBudgetForm() {
    const [itemName, setItemName] = useState('');
    const [itemsList, setItemsList] = useState([]);
 
-   const [valueString, setValueString] = useState('');
-
    const [alertColor, setAlertColor] = useState('');
    const [alertContent, setAlertContent] = useState('');
-
-   useEffect(() => {
-      if (typeof value == 'undefined') {
-         setValueString(0);
-      } else {
-         setValueString(value.toString());
-      }
-   }, [value]);
 
    function addNewItem() {
       const newItem = { itemQuantity, itemName };
@@ -117,7 +107,7 @@ export default function NewBudgetForm() {
       setAlertColor('');
       setAlertContent('');
 
-      if (!title.length || !addressee.length || !valueString.length) {
+      if (!title.length || !addressee.length || !value.length) {
          setAlertContent('Por favor, preenche todos os campos.');
          return;
       }
@@ -139,7 +129,7 @@ export default function NewBudgetForm() {
          return;
       }
 
-      if (valueString.length > 13 || valueString.length < 1 || value < 1) {
+      if (value.length > 19 || value.length < 1 || value < 1) {
          setAlertContent(
             'O orçamento deve ter valor entre R$ 1,00 e R$ 1.000.000.000,00.'
          );
@@ -275,7 +265,7 @@ export default function NewBudgetForm() {
             type="submit"
             text="CRIAR ORÇAMENTO"
             className="blueButton"
-            onClick={handleFormSubmit}
+            onClick={handleFormSubmit}            
          />
          <AlertMessage color={alertColor} content={alertContent} />
       </div>
