@@ -14,11 +14,10 @@ export default function SelectedBudgetPage() {
                firstParagraph="Confira em detalhes, edite se desejar."
             />
             <BudgetDetails
-               budgetTitle="Orçamento"
-               budgetAddressee="Alexandre Ferreira Lima"
-               budgetCategory="Serviço"
-               budgetValue="R$ 30.000,00"
-               budgetNote="Oi"
+               title="Orçamento"
+               addressee="Alexandre Ferreira Lima"
+               category="Serviço"
+               value="R$ 30.000,00"
             />
             <Footer />
          </div>

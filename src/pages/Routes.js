@@ -13,7 +13,7 @@ export default function AppRoutes() {
          <Route path="/signin" element={<SignInPage />} />
          <Route path="/home" element={<HomePage />} />
          <Route path="/new-budget" element={<NewBudgetPage />} />
-         <Route path="/selected-budget" element={<SelectedBudgetPage />} />
+         <Route path="/details/:budgetid" element={<SelectedBudgetPage />} />
       </Routes>
    );
 }
