@@ -2,7 +2,7 @@ import './Budget.css';
 
 export default function Budget(props) {
    return (
-      <div key={props.key} className="budget">
+      <div className="budget">
          <h4>{props.title}</h4>
          <span>{props.value}</span>
          <div>

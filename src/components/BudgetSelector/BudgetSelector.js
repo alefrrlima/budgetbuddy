@@ -38,7 +38,7 @@ export default function BudgetSelector() {
                         key={budget.id}
                         title={budget.title}
                         value={budget.value}
-                        id={budget.id}
+                        id={`${"# "}${budget.id}`}
                      />
                   ))}
                </>
