@@ -16,12 +16,15 @@ export default function CurrencyInputBox({
          decimalScale={2}
          fixedDecimalScale={true}
          allowNegative={false}
+         placeholder={placeholder}
+         // onValueChange={(values, sourceInfo) => {
+         //    console.log(values, sourceInfo);
+         // }}
          onValueChange={(values) => {
-            const { floatValue } = values;
-            const currencyValue = floatValue;
+            const { formattedValue } = values;
+            const currencyValue = formattedValue;
             sendCurrencyValue(currencyValue);
          }}
-         placeholder={placeholder}
       />
    );
 }

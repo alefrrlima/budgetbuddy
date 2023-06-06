@@ -18,6 +18,10 @@ export default function BudgetSelector() {
       navigate('/new-budget');
    }
 
+   function log() {
+      console.log(userBudgets);
+   }
+
    return (
       <div className="budgetSelector">
          <div className="displayBudgets">
@@ -28,17 +32,23 @@ export default function BudgetSelector() {
             )}
 
             {userData.length > 1 && (
-               <Budget
-                  title="Orçamento Orçamento"
-                  value="R$ 30.000,00"
-                  id="#001"
-               />
+               <>
+                  {userBudgets.map((budget, index) => (
+                     <Budget
+                        key={budget.id}
+                        title={budget.title}
+                        value={budget.value}
+                        id={budget.id}
+                     />
+                  ))}
+               </>
             )}
          </div>
          <Button
             className="blueButton"
             text="CRIAR ORÇAMENTO"
             onClick={toNewBudget}
+            // onClick={log}
          />
       </div>
    );
