@@ -12,7 +12,7 @@
 .budgetDetails div {
    display: flex;
    flex-direction: column;
-   min-width: 300px;
+   max-width: 300px;
    margin: 15px;
 }
 
@@ -69,6 +69,7 @@
    display: flex;
    flex-direction: column;
    height: 124px;
+   max-width: fit-content;
 }
 
 .itemContainer:last-child {
@@ -92,7 +93,7 @@
    width: 35px;
 }
 .itemTitle {
-   width: 165px;
+   width: fit-content;
 }
 
 @media (max-width: 799px) {
