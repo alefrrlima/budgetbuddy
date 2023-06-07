@@ -30,14 +30,14 @@ export default function NewBudgetForm() {
    const [alertColor, setAlertColor] = useState('');
    const [alertContent, setAlertContent] = useState('');
 
-   function log(e) {
-      e.preventDefault();
-      console.log(userBudgets);
-   }
-
    useEffect(() => {
       handleId();
    }, []);
+
+   function toHomePage(e) {
+      e.preventDefault();
+      navigate('/home');
+   }
 
    function handleId() {
       const possibleID = [1, 2, 3, 4, 5];
@@ -162,6 +162,11 @@ export default function NewBudgetForm() {
          return;
       }
 
+      if (userBudgets.length == 5) {
+         setAlertContent('Você já possui 5 orçamentos, no momento esse é o limite de sua conta.');
+         return;
+      }
+
       setAlertContent('Orçamento criado com sucesso!');
       setAlertColor('green');
 
@@ -282,14 +287,20 @@ export default function NewBudgetForm() {
                </div>
             </form>
          </div>
-         <Button
-            type="submit"
-            text="CRIAR ORÇAMENTO"
-            className="blueButton"
-            onClick={handleFormSubmit}
-            // onClick={log}
-            // onClick={handleId}
-         />
+         <div>
+            <Button
+               type="button"
+               text="VOLTAR"
+               className="blueButton"
+               onClick={toHomePage}
+            />
+            <Button
+               type="submit"
+               text="CRIAR ORÇAMENTO"
+               className="blueButton"
+               onClick={handleFormSubmit}
+            />
+         </div>
          <AlertMessage color={alertColor} content={alertContent} />
       </div>
    );

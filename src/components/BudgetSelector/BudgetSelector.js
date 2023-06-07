@@ -18,6 +18,15 @@ export default function BudgetSelector() {
       navigate('/new-budget');
    }
 
+   function deleteBudget(id) {
+      const updatedBudgets = userBudgets.filter((budget) => budget.id != id);
+      const onlyRegistryData = userData.slice(0, 1);
+      const updatedUserData = [...onlyRegistryData, ...updatedBudgets];
+      localStorage.setItem(user.email, JSON.stringify(updatedUserData));
+      setUserData(updatedUserData)
+      setUserBudgets(updatedBudgets);
+   }
+
    return (
       <div className="budgetSelector">
          <div className="displayBudgets">
@@ -35,6 +44,7 @@ export default function BudgetSelector() {
                         title={budget.title}
                         value={budget.value}
                         id={budget.id}
+                        onDelete={() => deleteBudget(`${budget.id}`)}
                      />
                   ))}
                </>

@@ -38,6 +38,29 @@
    align-items: end;
 }
 
+.deleteButton {
+   width: 40px;
+   height: 20px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.deleteButton {
+   background-color: var(--c10);
+   cursor: pointer;
+}
+
+.deleteButton svg {
+   fill: var(--c4);
+   transition: 0.2s;
+}
+
+.deleteButton svg:hover,
+.deleteButton svg:focus {
+   fill: var(--c3);
+}
+
 @media (max-width: 799px) {
    .budget{
       margin: 7.5px;

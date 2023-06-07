@@ -26,8 +26,7 @@ export default function SelectedBudgetPage() {
       console.log(currentBudget);
    }
 
-   function toHomePage(e) {
-      e.preventDefault();
+   function toHomePage() {
       navigate('/home');
    }
 
@@ -46,24 +45,24 @@ export default function SelectedBudgetPage() {
                   <span className="budgetInfo">{currentBudget.category}</span>
                   <span className="budgetInfo">{currentBudget.value}</span>
                </div>
-               <div className='itemsContainer'>
-                  <div className='itemContainer'>
+               <div className="itemsContainer">
+                  <div className="itemContainer">
                      <span className="itemQuantity">01</span>
                      <span className="itemTitle">Sabonete</span>
                   </div>
-                  <div className='itemContainer'>
+                  <div className="itemContainer">
                      <span className="itemQuantity">01</span>
                      <span className="itemTitle">Sabonete</span>
                   </div>
-                  <div className='itemContainer'>
+                  <div className="itemContainer">
                      <span className="itemQuantity">01</span>
                      <span className="itemTitle">Sabonete</span>
                   </div>
-                  <div className='itemContainer'>
+                  <div className="itemContainer">
                      <span className="itemQuantity">01</span>
                      <span className="itemTitle">Sabonete</span>
                   </div>
-                  <div className='itemContainer'>
+                  <div className="itemContainer">
                      <span className="itemQuantity">01</span>
                      <span className="itemTitle">Sabonete</span>
                   </div>
@@ -77,12 +76,6 @@ export default function SelectedBudgetPage() {
                      onClick={toHomePage}
                      text="VOLTAR"
                      className="blueButton"
-                  />
-                  <Button
-                     type="button"
-                     onClick={log}
-                     text="APAGAR"
-                     className="redButton"
                   />
                </div>
                <AlertMessage />
