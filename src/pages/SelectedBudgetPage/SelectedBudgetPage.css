@@ -70,6 +70,7 @@
    flex-direction: column;
    height: 124px;
    max-width: fit-content;
+   height: fit-content !important;
 }
 
 .itemContainer:last-child {
@@ -81,6 +82,7 @@
    flex-direction: row !important;
    margin: 0px !important;
    margin-bottom: 5px !important;
+
 }
 
 .itemQuantity,

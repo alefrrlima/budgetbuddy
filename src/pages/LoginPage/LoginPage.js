@@ -7,15 +7,17 @@ import { useEffect } from 'react';
 
 export default function LoginPage() {
    useEffect(() => {
-      const Admin = [
-         {
-            name: 'admin',
-            email: 'admin@admin.com.br',
-            password: 'admin',
-         },
-      ];
-      const AdminString = JSON.stringify(Admin);
-      localStorage.setItem('admin@admin.com.br', AdminString);
+      if (localStorage.getItem('admin@admin.com.br') == null) {
+         const Admin = [
+            {
+               name: 'admin',
+               email: 'admin@admin.com.br',
+               password: 'admin',
+            },
+         ];
+         const AdminString = JSON.stringify(Admin);
+         localStorage.setItem('admin@admin.com.br', AdminString);
+      }
    }, []);
 
    return (

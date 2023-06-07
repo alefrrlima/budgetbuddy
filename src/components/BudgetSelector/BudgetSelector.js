@@ -18,10 +18,6 @@ export default function BudgetSelector() {
       navigate('/new-budget');
    }
 
-   function log() {
-      console.log(userBudgets);
-   }
-
    return (
       <div className="budgetSelector">
          <div className="displayBudgets">
@@ -48,7 +44,6 @@ export default function BudgetSelector() {
             className="blueButton"
             text="CRIAR ORÇAMENTO"
             onClick={toNewBudget}
-            // onClick={log}
          />
       </div>
    );

@@ -15,8 +15,9 @@ export default function NewBudgetForm() {
    const user = JSON.parse(localStorage.getItem('loggedUser'));
    const loggedUser = localStorage.getItem(user.email);
    const [userData, setUserData] = useState(JSON.parse(loggedUser));
+   const [userBudgets, setUserBudgets] = useState(userData.slice(1));
 
-   const [id, setId] = useState(JSON.parse(loggedUser).length);
+   const [id, setId] = useState('');
    const [title, setTitle] = useState('');
    const [addressee, setAddressee] = useState('');
    const [category, setcategory] = useState('');
@@ -28,6 +29,26 @@ export default function NewBudgetForm() {
 
    const [alertColor, setAlertColor] = useState('');
    const [alertContent, setAlertContent] = useState('');
+
+   function log(e) {
+      e.preventDefault();
+      console.log(userBudgets);
+   }
+
+   useEffect(() => {
+      handleId();
+   }, []);
+
+   function handleId() {
+      const possibleID = [1, 2, 3, 4, 5];
+      if (!userBudgets.length) {
+         setId(JSON.parse(loggedUser).length);
+         return;
+      }
+      const budgetIds = userBudgets.map((budget) => budget.id);
+      const notUsed = possibleID.filter((id) => !budgetIds.includes(id));
+      setId(notUsed[0]);
+   }
 
    function addNewItem() {
       const newItem = { itemQuantity, itemName };
@@ -265,7 +286,9 @@ export default function NewBudgetForm() {
             type="submit"
             text="CRIAR ORÇAMENTO"
             className="blueButton"
-            onClick={handleFormSubmit}            
+            onClick={handleFormSubmit}
+            // onClick={log}
+            // onClick={handleId}
          />
          <AlertMessage color={alertColor} content={alertContent} />
       </div>

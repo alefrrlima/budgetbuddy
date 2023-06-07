@@ -61,7 +61,7 @@
 .itemsContainer {
    display: flex;
    flex-direction: column;
-   height: 200px;
+   height: 200px !important;
    margin-left: 15px;
 }
 
