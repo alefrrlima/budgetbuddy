@@ -65,6 +65,36 @@
    align-items: center;
 }
 
+.itemsContainer {
+   display: flex;
+   flex-direction: column;
+   height: 124px;
+}
+
+.itemContainer:last-child {
+   margin-bottom: 0 !important;
+}
+
+.itemContainer {
+   display: flex;
+   flex-direction: row !important;
+   margin: 0px !important;
+   margin-bottom: 5px !important;
+}
+
+.itemQuantity,
+.itemTitle {
+   color: var(--c2);
+   font-size: 1.8rem;
+}
+
+.itemQuantity {
+   width: 35px;
+}
+.itemTitle {
+   width: 165px;
+}
+
 @media (max-width: 799px) {
    .budgetDetails {
       margin: 0 -15px 7.5px -15px;
