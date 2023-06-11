@@ -20,10 +20,11 @@ export default function SelectedBudgetPage() {
    const [userBudgets, setUserBudgets] = useState(userData.slice(1));
    const budgetID = params.budgetid;
    const currentBudget = userBudgets.find((budget) => budget.id == budgetID);
+   const budgetItemList = currentBudget.itemsList;
 
    function log(e) {
       e.preventDefault();
-      console.log(currentBudget);
+      console.log(currentBudget.itemsList);
    }
 
    function toHomePage() {
@@ -51,10 +52,12 @@ export default function SelectedBudgetPage() {
                      <span className="budgetInfo">{currentBudget.value}</span>
                   </div>
                   <div className="BudgetItemsContainer">
-                     {currentBudget.itemList.map((item, intex) => (
-                        <div className="itemContainer">
-                           <span className="itemQuantity">01</span>
-                           <span className="itemTitle">Sabonete</span>
+                     {budgetItemList.map((item, intex) => (
+                        <div key={intex} className="itemContainer">
+                           <span className="itemQuantity">
+                              {item.itemQuantity}
+                           </span>
+                           <span className="itemTitle">{item.itemName}</span>
                         </div>
                      ))}
                   </div>

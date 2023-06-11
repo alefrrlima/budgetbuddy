@@ -15,7 +15,6 @@
    flex-basis: fit-content;
 }
 
-
 .BudgetInfoContainer,
 .BudgetItemsContainer {
    display: flex;
@@ -73,15 +72,19 @@
    align-items: center;
 }
 
-.itemContainer:last-child {
-   margin-bottom: 0 !important;
-}
-
 .itemContainer {
    display: flex;
    flex-direction: row !important;
    margin: 0px !important;
-   margin-bottom: 5px !important;
+   margin-bottom: 3.2px !important;
+}
+
+.itemContainer:first-child {
+   padding-top: 7px;
+}
+
+.itemContainer:last-child {
+   margin-bottom: 0 !important;
 }
 
 .itemQuantity,
