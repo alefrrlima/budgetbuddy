@@ -14,8 +14,8 @@ export default function Logout() {
 
    function toLoginPage(e) {
       e.preventDefault();
-      localStorage.clear('loggedUser');
       navigate('/');
+      localStorage.removeItem('loggedUser');
    }
 
    return (
