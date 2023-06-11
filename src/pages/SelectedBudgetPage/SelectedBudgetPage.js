@@ -39,32 +39,24 @@ export default function SelectedBudgetPage() {
                firstParagraph="Confira em detalhes, edite se desejar."
             />
             <div className="budgetDetails">
-               <div>
-                  <span className="budgetTitle">{currentBudget.title}</span>
-                  <span className="budgetInfo">{currentBudget.addressee}</span>
-                  <span className="budgetInfo">{currentBudget.category}</span>
-                  <span className="budgetInfo">{currentBudget.value}</span>
-               </div>
-               <div className="itemsContainer">
-                  <div className="itemContainer">
-                     <span className="itemQuantity">01</span>
-                     <span className="itemTitle">Sabonete</span>
+               <div className="budgetDetailsFrame">
+                  <div className="BudgetInfoContainer">
+                     <span className="budgetTitle">{currentBudget.title}</span>
+                     <span className="budgetInfo">
+                        {currentBudget.addressee}
+                     </span>
+                     <span className="budgetInfo">
+                        {currentBudget.category}
+                     </span>
+                     <span className="budgetInfo">{currentBudget.value}</span>
                   </div>
-                  <div className="itemContainer">
-                     <span className="itemQuantity">01</span>
-                     <span className="itemTitle">Sabonete</span>
-                  </div>
-                  <div className="itemContainer">
-                     <span className="itemQuantity">01</span>
-                     <span className="itemTitle">Sabonete</span>
-                  </div>
-                  <div className="itemContainer">
-                     <span className="itemQuantity">01</span>
-                     <span className="itemTitle">Sabonete</span>
-                  </div>
-                  <div className="itemContainer">
-                     <span className="itemQuantity">01</span>
-                     <span className="itemTitle">Sabonete</span>
+                  <div className="BudgetItemsContainer">
+                     {currentBudget.itemList.map((item, intex) => (
+                        <div className="itemContainer">
+                           <span className="itemQuantity">01</span>
+                           <span className="itemTitle">Sabonete</span>
+                        </div>
+                     ))}
                   </div>
                </div>
             </div>

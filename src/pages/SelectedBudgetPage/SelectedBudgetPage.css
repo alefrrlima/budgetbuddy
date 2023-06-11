@@ -2,17 +2,25 @@
    background-color: var(--c10);
    padding: 15px;
    display: flex;
-   flex-direction: row;
    justify-content: center;
    margin: 0 -30px;
    width: 100vw;
-   flex-wrap: wrap;
 }
 
-.budgetDetails div {
+.budgetDetailsFrame {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   margin: 0 !important;
+   flex-basis: fit-content;
+}
+
+
+.BudgetInfoContainer,
+.BudgetItemsContainer {
    display: flex;
    flex-direction: column;
-   max-width: 300px;
+   max-width: fit-content;
    margin: 15px;
 }
 
@@ -65,14 +73,6 @@
    align-items: center;
 }
 
-.itemsContainer {
-   display: flex;
-   flex-direction: column;
-   height: 124px;
-   max-width: fit-content;
-   height: fit-content !important;
-}
-
 .itemContainer:last-child {
    margin-bottom: 0 !important;
 }
@@ -82,7 +82,6 @@
    flex-direction: row !important;
    margin: 0px !important;
    margin-bottom: 5px !important;
-
 }
 
 .itemQuantity,
