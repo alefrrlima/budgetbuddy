@@ -1,8 +1,12 @@
 .bbHorizontalLogo{
    display: flex;
-   flex-direction: row;
+   flex-direction: column;
    align-items: center;
 }
+
+/* .bbHorizontalLogo img{
+   margin:;
+} */
 
 .bbHorizontalLogo h2 {
    margin-left: 5px;
