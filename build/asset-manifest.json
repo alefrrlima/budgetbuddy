@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/budgetbuddy/static/css/main.b4df91f8.css",
+    "main.css": "/budgetbuddy/static/css/main.0730eebb.css",
     "main.js": "/budgetbuddy/static/js/main.169da6a7.js",
     "static/media/bb-logo.svg": "/budgetbuddy/static/media/bb-logo.19cf9f75697f2408faa82652665503f5.svg",
     "static/media/ale-logo.svg": "/budgetbuddy/static/media/ale-logo.19eb048950856186cbaa8f46674c3bc0.svg",
     "index.html": "/budgetbuddy/index.html",
-    "main.b4df91f8.css.map": "/budgetbuddy/static/css/main.b4df91f8.css.map",
+    "main.0730eebb.css.map": "/budgetbuddy/static/css/main.0730eebb.css.map",
     "main.169da6a7.js.map": "/budgetbuddy/static/js/main.169da6a7.js.map"
   },
   "entrypoints": [
-    "static/css/main.b4df91f8.css",
+    "static/css/main.0730eebb.css",
     "static/js/main.169da6a7.js"
   ]
 }
