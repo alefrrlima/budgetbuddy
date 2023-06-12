@@ -2,11 +2,11 @@
    margin-bottom: 30px;
 }
 
-   margin-bottom: 5px;.bbVerticalLogo img {
-
+.bbVerticalLogo img {
+   margin-bottom: 5px;
 }
 
-.bbVerticalLogo div {
+.bbVerticalLogo {
    display: flex;
    flex-direction: column;
    align-items: center;
