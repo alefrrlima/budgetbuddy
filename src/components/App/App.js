@@ -6,7 +6,7 @@ import AppRoutes from '../../pages/Routes';
 
 export default function App() {
    return (
-      <BrowserRouter>
+      <BrowserRouter basename="/budgetbuddy">
          <AppRoutes />
       </BrowserRouter>
    );
