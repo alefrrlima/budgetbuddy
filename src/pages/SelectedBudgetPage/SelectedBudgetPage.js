@@ -37,7 +37,7 @@ export default function SelectedBudgetPage() {
             <Header />
             <LightAside
                mainTitle={`Orçamento #0${currentBudget.id}`}
-               firstParagraph="Confira em detalhes, edite se desejar."
+               firstParagraph="Confira em detalhes."
             />
             <div className="budgetDetails">
                <div className="budgetDetailsFrame">
