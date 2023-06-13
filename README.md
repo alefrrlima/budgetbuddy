@@ -4,7 +4,7 @@
 
 Essa aplicação está hospedada no Github Pages, acesse por aqui: https://alefrrlima.github.io/budgetbuddy/
 
-O BudgetBuddy é uma aplicação desenvolvida para estudo. Foi projetada para facilitar a criação e o gerenciamento de orçamentos de forma simples e eficiente.
+A BudgetBuddy é uma aplicação desenvolvida para estudo. Foi projetada para facilitar a criação e o gerenciamento de orçamentos de forma simples e eficiente.
 
 Com um sistema de cadastro e login baseado em localStorage, em instantes você pode criar uma conta e começar a utilizar todas as funcionalidades disponíveis.
 
