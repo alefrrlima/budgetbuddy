@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import "./PrivatePage.css"
+import './PrivatePage.css';
 
 export default function PrivatePage({ children }) {
    const navigate = useNavigate();
